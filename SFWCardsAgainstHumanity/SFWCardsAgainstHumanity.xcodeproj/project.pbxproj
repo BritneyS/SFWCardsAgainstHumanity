@@ -39,7 +39,6 @@
 			isa = PBXGroup;
 			children = (
 				06B4404B216BA5F90062BEDF /* SFWCardsAgainstHumanity */,
-				06B44062216BD35D0062BEDF /* Helpers */,
 				06B4404A216BA5F90062BEDF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +61,7 @@
 				06B44053216BA5FA0062BEDF /* Assets.xcassets */,
 				06B44055216BA5FA0062BEDF /* LaunchScreen.storyboard */,
 				06B44058216BA5FA0062BEDF /* Info.plist */,
+				06B44062216BD35D0062BEDF /* Helpers */,
 			);
 			path = SFWCardsAgainstHumanity;
 			sourceTree = "<group>";
