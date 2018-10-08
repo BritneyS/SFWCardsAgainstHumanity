@@ -31,6 +31,9 @@
                                 <state key="normal" title="Play!">
                                     <color key="titleColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Ijd-Er-kX9" kind="show" identifier="homeToPlay" id="fSS-h9-nV3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkt-r3-RnT">
                                 <rect key="frame" x="218" y="513" width="82" height="30"/>
