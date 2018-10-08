@@ -101,6 +101,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JDT-Kn-ml7"/>
                     </view>
+                    <connections>
+                        <outlet property="blackCardLabel" destination="S2a-Oq-elc" id="am8-Sp-XgE"/>
+                        <outlet property="whiteCardPhrase1Button" destination="j4j-TX-dzL" id="Hv1-iq-d9c"/>
+                        <outlet property="whiteCardPhrase2Button" destination="0lE-Lo-PT1" id="mWg-do-0Zk"/>
+                        <outlet property="whiteCardPhrase3Button" destination="RXZ-dk-agm" id="Sm7-C0-WYG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whl-4S-ho2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
