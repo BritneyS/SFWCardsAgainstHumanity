@@ -59,10 +59,9 @@
 				06B4405E216BC9A40062BEDF /* Model */,
 				06B4405F216BC9D30062BEDF /* Controllers */,
 				06B4404C216BA5F90062BEDF /* AppDelegate.swift */,
-				06B44050216BA5F90062BEDF /* Main.storyboard */,
 				06B44053216BA5FA0062BEDF /* Assets.xcassets */,
-				06B44055216BA5FA0062BEDF /* LaunchScreen.storyboard */,
 				06B44058216BA5FA0062BEDF /* Info.plist */,
+				06B44065216BE2F60062BEDF /* Views */,
 				06B44062216BD35D0062BEDF /* Helpers */,
 			);
 			path = SFWCardsAgainstHumanity;
@@ -89,6 +88,15 @@
 				06B44063216BD4230062BEDF /* IdentityEnum.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		06B44065216BE2F60062BEDF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06B44055216BA5FA0062BEDF /* LaunchScreen.storyboard */,
+				06B44050216BA5F90062BEDF /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
