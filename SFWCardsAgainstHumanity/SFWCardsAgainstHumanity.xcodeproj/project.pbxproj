@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		06B4404D216BA5F90062BEDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4404C216BA5F90062BEDF /* AppDelegate.swift */; };
-		06B4404F216BA5F90062BEDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4404E216BA5F90062BEDF /* ViewController.swift */; };
 		06B44052216BA5F90062BEDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B44050216BA5F90062BEDF /* Main.storyboard */; };
 		06B44054216BA5FA0062BEDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B44053216BA5FA0062BEDF /* Assets.xcassets */; };
 		06B44057216BA5FA0062BEDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B44055216BA5FA0062BEDF /* LaunchScreen.storyboard */; };
+		06B44061216BCAF00062BEDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44060216BCAF00062BEDF /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06B44049216BA5F90062BEDF /* SFWCardsAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFWCardsAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B4404C216BA5F90062BEDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		06B4404E216BA5F90062BEDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		06B44051216BA5F90062BEDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06B44053216BA5FA0062BEDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06B44056216BA5FA0062BEDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06B44058216BA5FA0062BEDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06B44060216BCAF00062BEDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,30 @@
 		06B4404B216BA5F90062BEDF /* SFWCardsAgainstHumanity */ = {
 			isa = PBXGroup;
 			children = (
+				06B4405E216BC9A40062BEDF /* Model */,
+				06B4405F216BC9D30062BEDF /* Controllers */,
 				06B4404C216BA5F90062BEDF /* AppDelegate.swift */,
-				06B4404E216BA5F90062BEDF /* ViewController.swift */,
 				06B44050216BA5F90062BEDF /* Main.storyboard */,
 				06B44053216BA5FA0062BEDF /* Assets.xcassets */,
 				06B44055216BA5FA0062BEDF /* LaunchScreen.storyboard */,
 				06B44058216BA5FA0062BEDF /* Info.plist */,
 			);
 			path = SFWCardsAgainstHumanity;
+			sourceTree = "<group>";
+		};
+		06B4405E216BC9A40062BEDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		06B4405F216BC9D30062BEDF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06B44060216BCAF00062BEDF /* HomeViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06B4404F216BA5F90062BEDF /* ViewController.swift in Sources */,
 				06B4404D216BA5F90062BEDF /* AppDelegate.swift in Sources */,
+				06B44061216BCAF00062BEDF /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
