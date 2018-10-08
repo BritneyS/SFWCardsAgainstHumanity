@@ -10,6 +10,7 @@ import Foundation
 
 enum Identity: String {
     case homeVC
+    case playVC
     
     case segueIDToChange
     
@@ -17,6 +18,8 @@ enum Identity: String {
         switch self {
         case .homeVC:
             return "HomeViewController"
+        case .playVC:
+            return "PlayViewController"
         default:
             return ""
         }
