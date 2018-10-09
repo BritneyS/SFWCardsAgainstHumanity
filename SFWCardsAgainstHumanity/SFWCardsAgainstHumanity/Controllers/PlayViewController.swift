@@ -33,7 +33,8 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateDeck()        
+        populateDeck()
+        setBlackCardLabel()
     }
     
     // MARK: Methods
@@ -49,6 +50,11 @@ class PlayViewController: UIViewController {
             blackCards.append(blackCard)
         }
         
+    }
+    
+    func setBlackCardLabel() {
+        blackCard = blackCards[0]
+        blackCardLabel.text = blackCard?.text
     }
     
 
