@@ -43,7 +43,7 @@ class PlayViewController: UIViewController {
     func populateDeck() {
         let deckDatabase = DeckDatabase()
         
-        for whiteCard in deckDatabase.whiteCards {
+        for whiteCard in deckDatabase.whiteCards{
             whiteCards.append(whiteCard)
         }
         
@@ -59,11 +59,10 @@ class PlayViewController: UIViewController {
     }
     
     func setWhiteCardButtonTitles() {
-        whiteCard1 = whiteCards.randomElement()
-        whiteCard2 = whiteCards.randomElement()
-        whiteCard3 = whiteCards.randomElement()
-        
-        /// TODO: pop/disqualify random element to prevent re-use in same method
+        let shuffledWhiteCards = whiteCards.shuffled()
+        whiteCard1 = shuffledWhiteCards[0]
+        whiteCard2 = shuffledWhiteCards[1]
+        whiteCard3 = shuffledWhiteCards[2]
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
