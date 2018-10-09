@@ -18,6 +18,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var whiteCardPhrase3Button: UIButton!
     
     // MARK: Properties
+    
+    var deck: Deck?
     var whiteCards: [String] = []
     var blackCards: [BlackCard] = []
     
@@ -28,10 +30,10 @@ class PlayViewController: UIViewController {
     
     
     // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateDeck()
-        
+        populateDeck()        
     }
     
     // MARK: Methods
@@ -46,6 +48,7 @@ class PlayViewController: UIViewController {
         for blackCard in deckDatabase.blackCards {
             blackCards.append(blackCard)
         }
+        
     }
     
 
