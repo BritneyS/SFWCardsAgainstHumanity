@@ -33,15 +33,21 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateDeck()        
+        newRound()
     }
     
     // MARK: Methods
     
+    func newRound() {
+        populateDeck()
+        setBlackCardLabel()
+        setWhiteCardButtonTitles()
+    }
+    
     func populateDeck() {
         let deckDatabase = DeckDatabase()
         
-        for whiteCard in deckDatabase.whiteCards {
+        for whiteCard in deckDatabase.whiteCards{
             whiteCards.append(whiteCard)
         }
         
@@ -49,6 +55,22 @@ class PlayViewController: UIViewController {
             blackCards.append(blackCard)
         }
         
+    }
+    
+    func setBlackCardLabel() {
+        blackCard = blackCards.randomElement()
+        blackCardLabel.text = blackCard?.text
+    }
+    
+    func setWhiteCardButtonTitles() {
+        let shuffledWhiteCards = whiteCards.shuffled()
+        whiteCard1 = shuffledWhiteCards[0]
+        whiteCard2 = shuffledWhiteCards[1]
+        whiteCard3 = shuffledWhiteCards[2]
+        
+        whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
+        whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
+        whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
     }
     
 
