@@ -16,6 +16,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var whiteCardPhrase1Button: UIButton!
     @IBOutlet weak var whiteCardPhrase2Button: UIButton!
     @IBOutlet weak var whiteCardPhrase3Button: UIButton!
+    @IBOutlet weak var pickNumberLabel: UILabel!
     
     // MARK: Properties
     
