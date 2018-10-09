@@ -33,12 +33,16 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newRound()
+    }
+    
+    // MARK: Methods
+    
+    func newRound() {
         populateDeck()
         setBlackCardLabel()
         setWhiteCardButtonTitles()
     }
-    
-    // MARK: Methods
     
     func populateDeck() {
         let deckDatabase = DeckDatabase()
