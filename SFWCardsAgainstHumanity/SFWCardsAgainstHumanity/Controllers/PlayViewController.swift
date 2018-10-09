@@ -27,16 +27,16 @@ class PlayViewController: UIViewController {
     var whiteCard3: String?
     
     
-    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         populateDeck()
-        print("test")
         
     }
     
+    // MARK: Methods
+    
     func populateDeck() {
-        print("loading all cards")
         let deckDatabase = DeckDatabase()
         
         for whiteCard in deckDatabase.whiteCards {
@@ -46,13 +46,6 @@ class PlayViewController: UIViewController {
         for blackCard in deckDatabase.blackCards {
             blackCards.append(blackCard)
         }
-        
-        for card in blackCards {
-            print("BlackCards: \(card.text!) + \(card.pick!)")
-        }
-        print("White cards: \(whiteCards)")
-        
-        
     }
     
 
