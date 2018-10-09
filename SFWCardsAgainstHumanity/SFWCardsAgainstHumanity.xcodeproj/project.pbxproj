@@ -14,6 +14,8 @@
 		06B44061216BCAF00062BEDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44060216BCAF00062BEDF /* HomeViewController.swift */; };
 		06B44064216BD4230062BEDF /* IdentityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44063216BD4230062BEDF /* IdentityEnum.swift */; };
 		06B44067216BE6250062BEDF /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44066216BE6250062BEDF /* PlayViewController.swift */; };
+		06B4406B216CE4230062BEDF /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4406A216CE4230062BEDF /* Deck.swift */; };
+		06B4406D216CE5AE0062BEDF /* DeckDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4406C216CE5AE0062BEDF /* DeckDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		06B44060216BCAF00062BEDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		06B44063216BD4230062BEDF /* IdentityEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityEnum.swift; sourceTree = "<group>"; };
 		06B44066216BE6250062BEDF /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		06B4406A216CE4230062BEDF /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		06B4406C216CE5AE0062BEDF /* DeckDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 		06B4405E216BC9A40062BEDF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06B4406A216CE4230062BEDF /* Deck.swift */,
+				06B4406C216CE5AE0062BEDF /* DeckDatabase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				06B44067216BE6250062BEDF /* PlayViewController.swift in Sources */,
+				06B4406D216CE5AE0062BEDF /* DeckDatabase.swift in Sources */,
 				06B4404D216BA5F90062BEDF /* AppDelegate.swift in Sources */,
+				06B4406B216CE4230062BEDF /* Deck.swift in Sources */,
 				06B44064216BD4230062BEDF /* IdentityEnum.swift in Sources */,
 				06B44061216BCAF00062BEDF /* HomeViewController.swift in Sources */,
 			);
