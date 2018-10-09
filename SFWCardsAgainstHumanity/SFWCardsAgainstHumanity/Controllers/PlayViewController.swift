@@ -35,7 +35,7 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         populateDeck()
         setBlackCardLabel()
-        setWhiteCardButtonTitle()
+        setWhiteCardButtonTitles()
     }
     
     // MARK: Methods
@@ -54,14 +54,16 @@ class PlayViewController: UIViewController {
     }
     
     func setBlackCardLabel() {
-        blackCard = blackCards[0]
+        blackCard = blackCards.randomElement()
         blackCardLabel.text = blackCard?.text
     }
     
-    func setWhiteCardButtonTitle() {
-        whiteCard1 = whiteCards[0]
-        whiteCard2 = whiteCards[1]
-        whiteCard3 = whiteCards[2]
+    func setWhiteCardButtonTitles() {
+        whiteCard1 = whiteCards.randomElement()
+        whiteCard2 = whiteCards.randomElement()
+        whiteCard3 = whiteCards.randomElement()
+        
+        /// TODO: pop/disqualify random element to prevent re-use in same method
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
