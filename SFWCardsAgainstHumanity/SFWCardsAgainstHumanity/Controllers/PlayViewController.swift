@@ -59,8 +59,14 @@ class PlayViewController: UIViewController {
     }
     
     func setBlackCardLabel() {
-        blackCard = blackCards.randomElement()
-        blackCardLabel.text = blackCard?.text
+        guard let blackCard = blackCards.randomElement() else { return }
+        blackCardLabel.text = blackCard.text
+        setPickNumberLabel(blackCard: blackCard)
+    }
+    
+    func setPickNumberLabel(blackCard: BlackCard) {
+        guard let pickNumber = blackCard.pick else { return }
+        pickNumberLabel.text = "Choose \(pickNumber)!"
     }
     
     func setWhiteCardButtonTitles() {
