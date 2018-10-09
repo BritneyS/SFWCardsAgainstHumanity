@@ -35,6 +35,7 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         populateDeck()
         setBlackCardLabel()
+        setWhiteCardButtonTitle()
     }
     
     // MARK: Methods
@@ -55,6 +56,16 @@ class PlayViewController: UIViewController {
     func setBlackCardLabel() {
         blackCard = blackCards[0]
         blackCardLabel.text = blackCard?.text
+    }
+    
+    func setWhiteCardButtonTitle() {
+        whiteCard1 = whiteCards[0]
+        whiteCard2 = whiteCards[1]
+        whiteCard3 = whiteCards[2]
+        
+        whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
+        whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
+        whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
     }
     
 
