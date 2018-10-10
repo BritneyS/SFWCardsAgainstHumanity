@@ -13,9 +13,9 @@ class PlayViewController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var blackCardLabel: UILabel!
-    @IBOutlet weak var whiteCardPhrase1Button: UIButton!
-    @IBOutlet weak var whiteCardPhrase2Button: UIButton!
-    @IBOutlet weak var whiteCardPhrase3Button: UIButton!
+    @IBOutlet weak var whiteCardPhrase1Button: BorderedButton!
+    @IBOutlet weak var whiteCardPhrase2Button: BorderedButton!
+    @IBOutlet weak var whiteCardPhrase3Button: BorderedButton!
     @IBOutlet weak var pickNumberLabel: UILabel!
     
     // MARK: Properties
