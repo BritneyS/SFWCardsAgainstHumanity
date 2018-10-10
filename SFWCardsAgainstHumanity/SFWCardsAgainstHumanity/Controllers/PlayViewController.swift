@@ -14,10 +14,9 @@ class PlayViewController: UIViewController {
     
     @IBOutlet weak var blackCardLabel: UILabel!
     @IBOutlet weak var whiteCardPhrase1Button: BorderedButton!
-    @IBOutlet weak var whiteCardPhrase2Button: UIButton!
-    @IBOutlet weak var whiteCardPhrase3Button: UIButton!
+    @IBOutlet weak var whiteCardPhrase2Button: BorderedButton!
+    @IBOutlet weak var whiteCardPhrase3Button: BorderedButton!
     @IBOutlet weak var pickNumberLabel: UILabel!
-    @IBOutlet weak var testButton2: BorderedButton!
     
     // MARK: Properties
     
@@ -36,16 +35,6 @@ class PlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newRound()
-        
-//        let testButton = BorderedButton(coder: CGRect(x: 100, y: 400, width: 100, height: 50))
-//        testButton.setTitle("test", for: .normal)
-//        testButton.setTitleColor(UIColor.blue, for: .normal)
-//        self.view.addSubview(testButton)
-        /*
-         let button:UIButton = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 50))
-         button.backgroundColor = .black
-         button.setTitle("Button", for: .normal)
-         */
     }
     
     // MARK: Methods
