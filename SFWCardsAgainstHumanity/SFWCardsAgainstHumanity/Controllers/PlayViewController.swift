@@ -82,3 +82,22 @@ class PlayViewController: UIViewController {
     
 
 }
+
+
+// MARK: API Call
+extension PlayViewController {
+    
+    // MARK: API Call Methods
+    
+    func blackCardsURL() -> URL? {
+        let urlString = "http://localhost:3000/blackCards"
+        guard let url = URL(string: urlString) else { return nil }
+        return url
+    }
+    
+    func whiteCardsURL() -> URL? {
+        let urlString = "http://localhost:3000/whiteCards"
+        guard let url = URL(string: urlString) else { return nil }
+        return url
+    }
+}
