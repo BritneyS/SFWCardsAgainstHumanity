@@ -105,6 +105,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4u0-jQ-VGY" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                <rect key="frame" x="133" y="617" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="testButton2"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JDT-Kn-ml7"/>
@@ -113,6 +118,7 @@
                     <connections>
                         <outlet property="blackCardLabel" destination="S2a-Oq-elc" id="am8-Sp-XgE"/>
                         <outlet property="pickNumberLabel" destination="qMv-TW-pbJ" id="L7g-My-CA3"/>
+                        <outlet property="testButton2" destination="4u0-jQ-VGY" id="oDU-0y-QuV"/>
                         <outlet property="whiteCardPhrase1Button" destination="j4j-TX-dzL" id="Hv1-iq-d9c"/>
                         <outlet property="whiteCardPhrase2Button" destination="0lE-Lo-PT1" id="mWg-do-0Zk"/>
                         <outlet property="whiteCardPhrase3Button" destination="RXZ-dk-agm" id="Sm7-C0-WYG"/>

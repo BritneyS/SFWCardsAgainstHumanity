@@ -39,21 +39,25 @@ import Foundation
 import UIKit
 
 class BorderedButton: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        layer.borderColor = tintColor.cgColor
-        layer.borderWidth = 1
-        layer.cornerRadius = 5
-        
-        contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-        print("bordered button initialized")
-    }
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//
+//        self.layer.borderColor = tintColor.cgColor
+//        self.layer.borderWidth = 1
+//        self.layer.cornerRadius = 5
+//
+//        contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+//        print("bordered button initialized")
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //print("bordered button initialized")
+        print("bordered button initialized")
         //fatalError("init(coder:) has not been implemented")
+        self.layer.borderColor = tintColor.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 5
+        contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         
     }
     
