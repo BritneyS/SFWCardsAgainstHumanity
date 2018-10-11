@@ -24,7 +24,7 @@ class PlayViewController: UIViewController {
     var whiteCards: [String] = []
     var blackCards: [BlackCard] = []
     
-    var whiteCardsJSON: [WhiteCard] = []
+    var whiteCardsJSON: WhiteCard? = nil
     var blackCardsJSON: [BlackCard] = []
     
     
@@ -50,12 +50,14 @@ class PlayViewController: UIViewController {
         guard let jsonStringWhiteCard = performCardRequest(with: whiteCardUrl) else { return }
         guard let jsonStringBlackCard = performCardRequest(with: blackCardUrl) else { return }
         
-        self.whiteCardsJSON = parse(data: jsonStringWhiteCard) ?? []
-        self.blackCardsJSON = parse(data: jsonStringBlackCard) ?? []
+        self.whiteCardsJSON = parseWhiteCard(data: jsonStringWhiteCard) ?? nil
+        self.blackCardsJSON = parseBlackCard(data: jsonStringBlackCard) ?? []
         
-        for card in whiteCardsJSON {
-            print("White Cards:\(card.phrase!)")
-        }
+//        for card in whiteCardsJSON {
+//            print("White Cards:\(card.phrase!)")
+//        }
+        
+        print("White Cards: \(whiteCardsJSON!)")
         
         for card in blackCardsJSON {
             print("Black Cards: \(card.text!)")
@@ -144,10 +146,10 @@ extension PlayViewController {
     }
     
     /// Loads JSON data into app model White Card
-    func parse(data: Data) -> [WhiteCard]? {
+    func parseWhiteCard(data: Data) -> WhiteCard? {
         do {
             let decoder = JSONDecoder()
-            let result = try decoder.decode([WhiteCard].self, from: data)
+            let result = try decoder.decode(WhiteCard.self, from: data)
             return result
         } catch {
             print("JSON Error \(error)")
@@ -156,7 +158,7 @@ extension PlayViewController {
     }
     
     /// Loads JSON data into app model Black Card
-    func parse(data: Data) -> [BlackCard]? {
+    func parseBlackCard(data: Data) -> [BlackCard]? {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode([BlackCard].self, from: data)
