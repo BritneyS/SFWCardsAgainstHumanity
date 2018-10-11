@@ -9,7 +9,7 @@
 import Foundation
 
 struct WhiteCard: Decodable {
-    let phrase: [String]
+    let phrase: [String]? // or String...
     
     init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()

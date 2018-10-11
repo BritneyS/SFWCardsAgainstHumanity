@@ -24,6 +24,10 @@ class PlayViewController: UIViewController {
     var whiteCards: [String] = []
     var blackCards: [BlackCard] = []
     
+    var whiteCardsJSON: [WhiteCard] = []
+    var blackCardsJSON: [BlackCard] = []
+    
+    
     var blackCard: BlackCard?
     var whiteCard1: String?
     var whiteCard2: String?
@@ -39,8 +43,28 @@ class PlayViewController: UIViewController {
     
     // MARK: Methods
     
+    func getCardData() {
+        
+        guard let whiteCardUrl = self.whiteCardsURL() else { return }
+        guard let blackCardUrl = self.blackCardsURL() else { return }
+        guard let jsonStringWhiteCard = performCardRequest(with: whiteCardUrl) else { return }
+        guard let jsonStringBlackCard = performCardRequest(with: blackCardUrl) else { return }
+        
+        self.whiteCardsJSON = parse(data: jsonStringWhiteCard) ?? []
+        self.blackCardsJSON = parse(data: jsonStringBlackCard) ?? []
+        
+        for card in whiteCardsJSON {
+            print("White Cards:\(card.phrase!)")
+        }
+        
+        for card in blackCardsJSON {
+            print("Black Cards: \(card.text!)")
+        }
+    }
+    
     func newRound() {
         populateDeck()
+        getCardData()
         setBlackCardLabel()
         setWhiteCardButtonTitles()
     }
@@ -117,6 +141,30 @@ extension PlayViewController {
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+    
+    /// Loads JSON data into app model White Card
+    func parse(data: Data) -> [WhiteCard]? {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode([WhiteCard].self, from: data)
+            return result
+        } catch {
+            print("JSON Error \(error)")
+            return nil
+        }
+    }
+    
+    /// Loads JSON data into app model Black Card
+    func parse(data: Data) -> [BlackCard]? {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode([BlackCard].self, from: data)
+            return result
+        } catch {
+            print("JSON Error \(error)")
+            return nil
+        }
     }
     
 }
