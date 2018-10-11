@@ -24,7 +24,7 @@ class PlayViewController: UIViewController {
     var whiteCards: [String] = []
     var blackCards: [BlackCard] = []
     
-    var whiteCardsJSON: WhiteCard? = nil
+    var whiteCardsJSON: WhiteCards? = nil
     var blackCardsJSON: [BlackCard] = []
     
     
@@ -146,10 +146,10 @@ extension PlayViewController {
     }
     
     /// Loads JSON data into app model White Card
-    func parseWhiteCard(data: Data) -> WhiteCard? {
+    func parseWhiteCard(data: Data) -> WhiteCards? {
         do {
             let decoder = JSONDecoder()
-            let result = try decoder.decode(WhiteCard.self, from: data)
+            let result = try decoder.decode(WhiteCards.self, from: data)
             return result
         } catch {
             print("JSON Error \(error)")

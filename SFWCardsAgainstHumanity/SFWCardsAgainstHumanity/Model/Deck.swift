@@ -9,10 +9,10 @@
 import Foundation
 
 class Deck {
-    var whiteCards: [WhiteCard]?
+    var whiteCards: [WhiteCards]?
     var blackCards: [BlackCard]?
     
-    init(whiteCards: [WhiteCard], blackCards: [BlackCard]) {
+    init(whiteCards: [WhiteCards], blackCards: [BlackCard]) {
         self.whiteCards = whiteCards
         self.blackCards = blackCards
     }

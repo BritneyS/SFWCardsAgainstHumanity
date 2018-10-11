@@ -12,7 +12,7 @@ import Foundation
 //    let whiteCards: [WhiteCard]
 //}
 
-struct WhiteCard: Decodable {
+struct WhiteCards: Decodable {
     var phrase: [String?] = []
     
     init(from decoder: Decoder) throws {
