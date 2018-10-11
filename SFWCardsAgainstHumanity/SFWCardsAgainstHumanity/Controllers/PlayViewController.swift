@@ -61,7 +61,7 @@ class PlayViewController: UIViewController {
     }
     
     func newRound() {
-        populateDeck()
+        //populateDeck()
         getCardData()
         setBlackCardLabel()
         setWhiteCardButtonTitles()
@@ -93,10 +93,18 @@ class PlayViewController: UIViewController {
     
     func setWhiteCardButtonTitles() {
         //let shuffledWhiteCards = whiteCards.shuffled()
-        guard let shuffledWhiteCards = whiteCardsJSON?.phrases.shuffled() else { return }
+        //let whiteCardOptions = [whiteCard1, whiteCard2, whiteCard3]
+        //let whiteCardPhrases = removeEmptyPhrases(from: whiteCardsJSON?.phrases ?? [])
+        guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
+        
+        //whiteCardPhrases = whiteCardPhrases.filter {}
+        let shuffledWhiteCards = whiteCardPhrases.shuffled()
+        
+       
         whiteCard1 = shuffledWhiteCards[0]
         whiteCard2 = shuffledWhiteCards[1]
         whiteCard3 = shuffledWhiteCards[2]
+       
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)

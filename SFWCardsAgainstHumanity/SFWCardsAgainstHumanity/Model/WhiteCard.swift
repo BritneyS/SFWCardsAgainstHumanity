@@ -17,7 +17,9 @@ struct WhiteCards: Decodable {
         var arrayContainer = try decoder.unkeyedContainer()
         while !arrayContainer.isAtEnd {
             let nextPhrase = try arrayContainer.decode(String.self)
-            phrases.append(nextPhrase)
+            if !nextPhrase.isEmpty {
+                phrases.append(nextPhrase)
+            }
         }
     }
 }
