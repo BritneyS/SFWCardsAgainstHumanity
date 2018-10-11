@@ -9,11 +9,6 @@
 import Foundation
 
 struct BlackCard: Decodable {
-    var text: String?
-    var pick: Int?
-    
-    init(text: String, pick: Int) {
-        self.text = text
-        self.pick = pick
-    }
+    let text: String?
+    let pick: Int?
 }

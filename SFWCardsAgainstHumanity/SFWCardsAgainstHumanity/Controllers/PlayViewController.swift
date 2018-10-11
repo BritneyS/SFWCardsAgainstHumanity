@@ -53,10 +53,6 @@ class PlayViewController: UIViewController {
         self.whiteCardsJSON = parseWhiteCard(data: jsonStringWhiteCard) ?? nil
         self.blackCardsJSON = parseBlackCard(data: jsonStringBlackCard) ?? []
         
-//        for card in whiteCardsJSON {
-//            print("White Cards:\(card.phrase!)")
-//        }
-        
         print("White Cards: \(whiteCardsJSON!)")
         
         for card in blackCardsJSON {

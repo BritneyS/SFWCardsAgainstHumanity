@@ -8,10 +8,6 @@
 
 import Foundation
 
-//struct WhiteCardSet: Decodable {
-//    let whiteCards: [WhiteCard]
-//}
-
 struct WhiteCards: Decodable {
     var phrase: [String?] = []
     
