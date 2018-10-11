@@ -81,7 +81,7 @@ class PlayViewController: UIViewController {
     }
     
     func setBlackCardLabel() {
-        guard let blackCard = blackCards.randomElement() else { return }
+        guard let blackCard = blackCardsJSON.randomElement() else { return }
         blackCardLabel.text = blackCard.text
         setPickNumberLabel(blackCard: blackCard)
     }
