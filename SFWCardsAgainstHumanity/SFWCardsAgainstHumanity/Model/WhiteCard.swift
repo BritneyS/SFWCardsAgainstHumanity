@@ -8,14 +8,17 @@
 
 import Foundation
 
+
 struct WhiteCards: Decodable {
-    var phrase: [String?] = []
+    
+    var phrases: [String?] = []
     
     init(from decoder: Decoder) throws {
         var arrayContainer = try decoder.unkeyedContainer()
         while !arrayContainer.isAtEnd {
             let nextPhrase = try arrayContainer.decode(String.self)
-            phrase.append(nextPhrase)
+            phrases.append(nextPhrase)
         }
     }
 }
+

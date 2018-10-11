@@ -92,7 +92,8 @@ class PlayViewController: UIViewController {
     }
     
     func setWhiteCardButtonTitles() {
-        let shuffledWhiteCards = whiteCards.shuffled()
+        //let shuffledWhiteCards = whiteCards.shuffled()
+        guard let shuffledWhiteCards = whiteCardsJSON?.phrases.shuffled() else { return }
         whiteCard1 = shuffledWhiteCards[0]
         whiteCard2 = shuffledWhiteCards[1]
         whiteCard3 = shuffledWhiteCards[2]
