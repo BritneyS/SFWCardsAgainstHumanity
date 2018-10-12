@@ -7,8 +7,8 @@
 //
 
 import Foundation
-
-struct DeckDatabase {
+/*
+struct DeckDatabase: {
     let blackCards = [
         BlackCard(text: "What's that smell?", pick: 1),
         BlackCard(text: "_ is a slippery slope that leads to _.", pick: 2),
@@ -24,3 +24,4 @@ struct DeckDatabase {
         "A windmill full of corpses."
     ]
 }
+*/

@@ -63,25 +63,47 @@ class PlayViewController: UIViewController {
     func newRound() {
         //populateDeck()
         getCardData()
-        setBlackCardLabel()
+        checkBlackCard()
+        //setBlackCardLabel()
         setWhiteCardButtonTitles()
     }
     
-    func populateDeck() {
-        let deckDatabase = DeckDatabase()
-        
-        for whiteCard in deckDatabase.whiteCards{
-            whiteCards.append(whiteCard)
+//    func populateDeck() {
+//        let deckDatabase = DeckDatabase()
+//
+//        for whiteCard in deckDatabase.whiteCards{
+//            whiteCards.append(whiteCard)
+//        }
+//
+//        for blackCard in deckDatabase.blackCards {
+//            blackCards.append(blackCard)
+//        }
+//
+//    }
+    
+    func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
+        if (blackCard.text?.isEmpty)! {
+            return true
+        } else {
+            return false
         }
-        
-        for blackCard in deckDatabase.blackCards {
-            blackCards.append(blackCard)
-        }
-        
     }
     
-    func setBlackCardLabel() {
-        guard let blackCard = blackCardsJSON.randomElement() else { return }
+    func chooseRandomBlackCard() -> BlackCard? {
+        guard let blackCard = blackCardsJSON.randomElement() else { return nil }
+        return blackCard
+    }
+    
+    func checkBlackCard() {
+        guard let blackCard = chooseRandomBlackCard() else { return }
+        if !isBlackCardTextEmpty(in: blackCard) {
+            setBlackCardLabel(for: blackCard)
+        } else {
+            checkBlackCard()
+        }
+    }
+    
+    func setBlackCardLabel(for blackCard: BlackCard) {
         blackCardLabel.text = blackCard.text
         setPickNumberLabel(blackCard: blackCard)
     }
