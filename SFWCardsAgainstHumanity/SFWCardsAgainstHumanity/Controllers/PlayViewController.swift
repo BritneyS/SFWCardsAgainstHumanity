@@ -20,9 +20,6 @@ class PlayViewController: UIViewController {
     
     // MARK: Properties
     
-    var deck: Deck?
-    var whiteCards: [String] = []
-    var blackCards: [BlackCard] = []
     
     var whiteCardsJSON: WhiteCards? = nil
     var blackCardsJSON: [BlackCard] = []
@@ -61,25 +58,10 @@ class PlayViewController: UIViewController {
     }
     
     func newRound() {
-        //populateDeck()
         getCardData()
         checkBlackCard()
-        //setBlackCardLabel()
         setWhiteCardButtonTitles()
     }
-    
-//    func populateDeck() {
-//        let deckDatabase = DeckDatabase()
-//
-//        for whiteCard in deckDatabase.whiteCards{
-//            whiteCards.append(whiteCard)
-//        }
-//
-//        for blackCard in deckDatabase.blackCards {
-//            blackCards.append(blackCard)
-//        }
-//
-//    }
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
         if (blackCard.text?.isEmpty)! {
@@ -114,12 +96,9 @@ class PlayViewController: UIViewController {
     }
     
     func setWhiteCardButtonTitles() {
-        //let shuffledWhiteCards = whiteCards.shuffled()
-        //let whiteCardOptions = [whiteCard1, whiteCard2, whiteCard3]
-        //let whiteCardPhrases = removeEmptyPhrases(from: whiteCardsJSON?.phrases ?? [])
         guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
         
-        //whiteCardPhrases = whiteCardPhrases.filter {}
+        
         let shuffledWhiteCards = whiteCardPhrases.shuffled()
         
        
