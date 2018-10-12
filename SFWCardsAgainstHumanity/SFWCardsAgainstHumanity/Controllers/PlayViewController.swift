@@ -23,12 +23,11 @@ class PlayViewController: UIViewController {
     
     var whiteCardsJSON: WhiteCards? = nil
     var blackCardsJSON: [BlackCard] = []
-    
-    
     var blackCard: BlackCard?
     var whiteCard1: String?
     var whiteCard2: String?
     var whiteCard3: String?
+    var isLoading = false
     
     
     // MARK: Lifecycle
@@ -44,17 +43,75 @@ class PlayViewController: UIViewController {
         
         guard let whiteCardUrl = self.whiteCardsURL() else { return }
         guard let blackCardUrl = self.blackCardsURL() else { return }
-        guard let jsonStringWhiteCard = performCardRequest(with: whiteCardUrl) else { return }
-        guard let jsonStringBlackCard = performCardRequest(with: blackCardUrl) else { return }
+//        guard let jsonStringWhiteCard = performCardRequest(with: whiteCardUrl) else { return }
+//        guard let jsonStringBlackCard = performCardRequest(with: blackCardUrl) else { return }
+//
+//        self.whiteCardsJSON = parseWhiteCard(data: jsonStringWhiteCard) ?? nil
+//        self.blackCardsJSON = parseBlackCard(data: jsonStringBlackCard) ?? []
+//
+//        print("White Cards: \(whiteCardsJSON!)")
+//
+//        for card in blackCardsJSON {
+//            print("Black Cards: \(card.text!)")
+        let session = URLSession.shared
         
-        self.whiteCardsJSON = parseWhiteCard(data: jsonStringWhiteCard) ?? nil
-        self.blackCardsJSON = parseBlackCard(data: jsonStringBlackCard) ?? []
+        let dataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
+            data, response, error in
+            if let error = error {
+                print("Failure in data task! \(error)")
+            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Successful response! \(data!)")
+                if let data = data {
+                    self.whiteCardsJSON = self.parseWhiteCard(data: data) ?? nil
+                    print("White Card JSON parsed: \(self.whiteCardsJSON)")
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        //self.view.reloadInputViews()
+                    }
+                }
+                
+                return
+            } else {
+                print("Failure in response! \(response!)")
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
+                //self.view.reloadInputViews()
+                self.showNetworkError()
+            }
+        })
+        dataTask.resume()
         
-        print("White Cards: \(whiteCardsJSON!)")
+    
         
-        for card in blackCardsJSON {
-            print("Black Cards: \(card.text!)")
-        }
+        /*
+          let url = iTunesURL(searchText: searchBar.text!)
+            let session = URLSession.shared
+         
+            let dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
+                if let error = error {
+                    print("Failure! \(error)")
+                } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                    //print("Success! \(data!)")
+                    if let data = data {
+                        self.searchResults = self.parse(data: data)
+                        DispatchQueue.main.async {
+                            self.isLoading = false
+                            self.tableView.reloadData()
+                        }
+                    }
+                        return
+                } else {
+                    print("Failure! \(response!)")
+                }
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.tableView.reloadData()
+                    self.showNetworkError()
+                }
+            })
+            dataTask.resume()
+         */
     }
     
     func newRound() {
