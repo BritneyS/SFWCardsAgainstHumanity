@@ -75,7 +75,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="userTappedPhraseOne:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="mFt-MM-rkG"/>
+                                    <action selector="userTappedPhraseButton:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="6fG-wz-3Rv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-dk-agm" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
@@ -87,7 +87,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="userTappedPhraseThree:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="9tS-4S-V3B"/>
+                                    <action selector="userTappedPhraseButton:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="qcV-yf-dzq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-Lo-PT1" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
@@ -99,7 +99,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="userTappedPhraseTwo:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="Min-bh-005"/>
+                                    <action selector="userTappedPhraseButton:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="UDx-cC-SM9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blackCard phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-Oq-elc">

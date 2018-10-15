@@ -10,15 +10,6 @@ import Foundation
 import UIKit
 
 /*
- let fadedColor = tintColor.withAlphaComponent(0.2).cgColor
- 
- if isHighlighted {
- layer.borderColor = fadedColor
- } else {
- layer.borderColor = tintColor.cgColor
- 
- */
-
 class DisabledButton: UIButton {
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,3 +32,4 @@ class DisabledButton: UIButton {
         }
     }
 }
+*/

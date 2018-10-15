@@ -184,48 +184,17 @@ class PlayViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func userTappedPhraseOne(_ sender: BorderedButton) {
-        guard let phraseOne = whiteCardPhrase1Button.currentTitle else { return }
+    @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
+        let button = sender
+        guard let phrase = button.currentTitle else { return }
         if selectionLimit > 0 {
-            selection.whiteCardPhrases.append(phraseOne)
+            selection.whiteCardPhrases.append(phrase)
             reduceSelectionLimit()
             updatePickNumberLabel()
             if selectionLimit == 0 {
                 clearPickNumberLabel()
                 toggleEnabledButtonState(for: seeSelectionButton)
                 
-            }
-        } else {
-            print("No more choices!")
-        }
-        print(selection)
-    }
-    
-    @IBAction func userTappedPhraseTwo(_ sender: BorderedButton) {
-        guard let phraseTwo = whiteCardPhrase2Button.currentTitle else { return }
-        if selectionLimit > 0 {
-            selection.whiteCardPhrases.append(phraseTwo)
-            reduceSelectionLimit()
-            updatePickNumberLabel()
-            if selectionLimit == 0 {
-                clearPickNumberLabel()
-                toggleEnabledButtonState(for: seeSelectionButton)
-            }
-        } else {
-            print("No more choices!")
-        }
-        print(selection)
-    }
-    
-    @IBAction func userTappedPhraseThree(_ sender: BorderedButton) {
-        guard let phraseThree = whiteCardPhrase3Button.currentTitle else { return }
-        if selectionLimit > 0 {
-            selection.whiteCardPhrases.append(phraseThree)
-            reduceSelectionLimit()
-            updatePickNumberLabel()
-            if selectionLimit == 0 {
-                clearPickNumberLabel()
-                toggleEnabledButtonState(for: seeSelectionButton)
             }
         } else {
             print("No more choices!")
