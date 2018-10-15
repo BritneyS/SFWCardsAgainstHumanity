@@ -128,6 +128,14 @@ class PlayViewController: UIViewController {
         selectionLimit = pickNumber
     }
     
+    func getSelectionLimit() -> Int {
+        return selectionLimit
+    }
+    
+    func reduceSelectionLimit() {
+        selectionLimit -= 1
+    }
+    
     func setBlackCardLabel(for blackCard: BlackCard) {
         blackCardLabel.text = blackCard.text
         setPickNumberLabel(blackCard: blackCard)
@@ -136,11 +144,11 @@ class PlayViewController: UIViewController {
     func setPickNumberLabel(blackCard: BlackCard) {
         guard let pickNumber = blackCard.pick else { return }
         setSelectionLimit(to: pickNumber)
-        pickNumberLabel.text = "Choose \(pickNumber)!"
+        pickNumberLabel.text = "Choose \(self.selectionLimit)!"
     }
     
-    func updatePickNumberLabel(with selectionRemaining: Int) {
-        pickNumberLabel.text = "Choose \(selectionRemaining)!" //TODO set selection remaining to --pickNumber
+    func updatePickNumberLabel() {
+        pickNumberLabel.text = "Choose \(self.selectionLimit)!" //TODO set selection remaining to --pickNumber
     }
     
     func setWhiteCardButtonTitles() {
@@ -162,6 +170,8 @@ class PlayViewController: UIViewController {
         guard let phraseOne = whiteCardPhrase1Button.currentTitle else { return }
         if selection.whiteCardPhrases.count < selectionLimit {
             selection.whiteCardPhrases.append(phraseOne)
+            reduceSelectionLimit()
+            updatePickNumberLabel()
         } else {
             print("No more choices!")
         }
@@ -172,6 +182,8 @@ class PlayViewController: UIViewController {
         guard let phraseTwo = whiteCardPhrase2Button.currentTitle else { return }
         if selection.whiteCardPhrases.count < selectionLimit {
             selection.whiteCardPhrases.append(phraseTwo)
+            reduceSelectionLimit()
+            updatePickNumberLabel()
         } else {
             print("No more choices!")
         }
@@ -182,6 +194,8 @@ class PlayViewController: UIViewController {
         guard let phraseThree = whiteCardPhrase3Button.currentTitle else { return }
         if selection.whiteCardPhrases.count < selectionLimit {
             selection.whiteCardPhrases.append(phraseThree)
+            reduceSelectionLimit()
+            updatePickNumberLabel()
         } else {
             print("No more choices!")
         }
