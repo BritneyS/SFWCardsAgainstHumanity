@@ -96,6 +96,19 @@ class PlayViewController: UIViewController {
 
     }
     
+    func setWhiteCardButtonTitles() {
+        guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
+        let shuffledWhiteCards = whiteCardPhrases.shuffled()
+        
+        whiteCard1 = shuffledWhiteCards[0]
+        whiteCard2 = shuffledWhiteCards[1]
+        whiteCard3 = shuffledWhiteCards[2]
+        
+        whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
+        whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
+        whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
+    }
+    
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
         guard let blackCardText = blackCard.text else { return false }
         if blackCardText.isEmpty {
@@ -112,7 +125,7 @@ class PlayViewController: UIViewController {
     
     func checkBlackCard() {
         guard let blackCard = chooseRandomBlackCard() else { return }
-        if !isBlackCardTextEmpty(in: blackCard) {
+        if !isBlackCardTextEmpty(in: blackCard) && blackCard.pick == 3 {
             saveBlackCardSelection(of: blackCard)
             setBlackCardLabel(for: blackCard)
         } else {
@@ -128,12 +141,18 @@ class PlayViewController: UIViewController {
         selectionLimit = pickNumber
     }
     
-    func getSelectionLimit() -> Int {
-        return selectionLimit
+    func reduceSelectionLimit() {
+        self.selectionLimit -= 1
     }
     
-    func reduceSelectionLimit() {
-        selectionLimit -= 1
+    func updatePickNumberLabel() {
+        pickNumberLabel.text = "Choose \(self.selectionLimit)!"
+    }
+    
+    func setPickNumberLabel(blackCard: BlackCard) {
+        guard let pickNumber = blackCard.pick else { return }
+        setSelectionLimit(to: pickNumber)
+        updatePickNumberLabel()
     }
     
     func setBlackCardLabel(for blackCard: BlackCard) {
@@ -141,34 +160,11 @@ class PlayViewController: UIViewController {
         setPickNumberLabel(blackCard: blackCard)
     }
     
-    func setPickNumberLabel(blackCard: BlackCard) {
-        guard let pickNumber = blackCard.pick else { return }
-        setSelectionLimit(to: pickNumber)
-        pickNumberLabel.text = "Choose \(self.selectionLimit)!"
-    }
-    
-    func updatePickNumberLabel() {
-        pickNumberLabel.text = "Choose \(self.selectionLimit)!" //TODO set selection remaining to --pickNumber
-    }
-    
-    func setWhiteCardButtonTitles() {
-        guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
-        let shuffledWhiteCards = whiteCardPhrases.shuffled()
-        
-        whiteCard1 = shuffledWhiteCards[0]
-        whiteCard2 = shuffledWhiteCards[1]
-        whiteCard3 = shuffledWhiteCards[2]
-        
-        whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
-        whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
-        whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
-    }
-    
     // MARK: Actions
     
     @IBAction func userTappedPhraseOne(_ sender: BorderedButton) {
         guard let phraseOne = whiteCardPhrase1Button.currentTitle else { return }
-        if selection.whiteCardPhrases.count < selectionLimit {
+        if selectionLimit > 0 {
             selection.whiteCardPhrases.append(phraseOne)
             reduceSelectionLimit()
             updatePickNumberLabel()
@@ -180,7 +176,7 @@ class PlayViewController: UIViewController {
     
     @IBAction func userTappedPhraseTwo(_ sender: BorderedButton) {
         guard let phraseTwo = whiteCardPhrase2Button.currentTitle else { return }
-        if selection.whiteCardPhrases.count < selectionLimit {
+        if selectionLimit > 0 {
             selection.whiteCardPhrases.append(phraseTwo)
             reduceSelectionLimit()
             updatePickNumberLabel()
@@ -192,7 +188,7 @@ class PlayViewController: UIViewController {
     
     @IBAction func userTappedPhraseThree(_ sender: BorderedButton) {
         guard let phraseThree = whiteCardPhrase3Button.currentTitle else { return }
-        if selection.whiteCardPhrases.count < selectionLimit {
+        if selectionLimit > 0 {
             selection.whiteCardPhrases.append(phraseThree)
             reduceSelectionLimit()
             updatePickNumberLabel()
