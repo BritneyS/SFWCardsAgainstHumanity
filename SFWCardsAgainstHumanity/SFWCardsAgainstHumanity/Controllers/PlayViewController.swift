@@ -166,13 +166,21 @@ class PlayViewController: UIViewController {
     
     @IBAction func userTappedPhraseTwo(_ sender: BorderedButton) {
         guard let phraseTwo = whiteCardPhrase2Button.currentTitle else { return }
-        selection.whiteCardPhrases.append(phraseTwo)
+        if selection.whiteCardPhrases.count < selectionLimit {
+            selection.whiteCardPhrases.append(phraseTwo)
+        } else {
+            print("No more choices!")
+        }
         print(selection)
     }
     
     @IBAction func userTappedPhraseThree(_ sender: BorderedButton) {
         guard let phraseThree = whiteCardPhrase3Button.currentTitle else { return }
-        selection.whiteCardPhrases.append(phraseThree)
+        if selection.whiteCardPhrases.count < selectionLimit {
+            selection.whiteCardPhrases.append(phraseThree)
+        } else {
+            print("No more choices!")
+        }
         print(selection)
     }
     
