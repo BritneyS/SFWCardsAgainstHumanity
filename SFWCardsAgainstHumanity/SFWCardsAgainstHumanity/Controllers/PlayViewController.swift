@@ -34,7 +34,7 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newRound()
+        getCardData()
     }
     
     // MARK: Methods
@@ -43,16 +43,7 @@ class PlayViewController: UIViewController {
         
         guard let whiteCardUrl = self.whiteCardsURL() else { return }
         guard let blackCardUrl = self.blackCardsURL() else { return }
-//        guard let jsonStringWhiteCard = performCardRequest(with: whiteCardUrl) else { return }
-//        guard let jsonStringBlackCard = performCardRequest(with: blackCardUrl) else { return }
-//
-//        self.whiteCardsJSON = parseWhiteCard(data: jsonStringWhiteCard) ?? nil
-//        self.blackCardsJSON = parseBlackCard(data: jsonStringBlackCard) ?? []
-//
-//        print("White Cards: \(whiteCardsJSON!)")
-//
-//        for card in blackCardsJSON {
-//            print("Black Cards: \(card.text!)")
+
         let session = URLSession.shared
         
         let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
@@ -63,20 +54,17 @@ class PlayViewController: UIViewController {
                 print("Successful response! \(data!)")
                 if let data = data {
                     self.whiteCardsJSON = self.parseWhiteCard(data: data) ?? nil
-                    print("White Card JSON parsed: \(self.whiteCardsJSON)")
                     DispatchQueue.main.async {
                         self.isLoading = false
                         self.setWhiteCardButtonTitles()
                     }
                 }
-                
                 return
             } else {
                 print("Failure in response! \(response!)")
             }
             DispatchQueue.main.async {
                 self.isLoading = false
-               
                 self.showNetworkError()
             }
         })
@@ -90,7 +78,6 @@ class PlayViewController: UIViewController {
                 print("Successful response! \(data!)")
                 if let data = data {
                     self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
-                    print("Black Card JSON parsed: \(self.blackCardsJSON)")
                     DispatchQueue.main.async {
                         self.isLoading = false
                         self.checkBlackCard()
@@ -106,15 +93,7 @@ class PlayViewController: UIViewController {
             }
         })
         blackCardDataTask.resume()
-        
-    
-    
-    }
-    
-    func newRound() {
-        getCardData()
-        checkBlackCard()
-        setWhiteCardButtonTitles()
+
     }
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
@@ -127,7 +106,6 @@ class PlayViewController: UIViewController {
     
     func chooseRandomBlackCard() -> BlackCard? {
         guard let blackCard = blackCardsJSON.randomElement() else { return nil }
-        print("😍chosen Black Card: \(blackCard)")
         return blackCard
     }
     
@@ -182,16 +160,6 @@ extension PlayViewController {
         let urlString = "http://localhost:3000/whiteCards"
         guard let url = URL(string: urlString) else { return nil }
         return url
-    }
-    
-    func performCardRequest(with url: URL) -> Data? {
-        do {
-            return try Data(contentsOf: url)
-        } catch {
-            print("Download Error: \(error.localizedDescription)")
-            showNetworkError()
-            return nil
-        }
     }
     
     func showNetworkError() {
