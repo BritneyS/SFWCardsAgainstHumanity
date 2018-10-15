@@ -17,6 +17,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var whiteCardPhrase2Button: BorderedButton!
     @IBOutlet weak var whiteCardPhrase3Button: BorderedButton!
     @IBOutlet weak var pickNumberLabel: UILabel!
+    @IBOutlet weak var seeSelectionButton: UIButton!
+    
     
     // MARK: Properties
     
@@ -34,10 +36,13 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //seeSelectionButton.isEnabled = false
+        toggleEnabledButtonState(for: seeSelectionButton)
         getCardData()
     }
     
     // MARK: Methods
+    
     
     func getCardData() {
         
@@ -164,6 +169,19 @@ class PlayViewController: UIViewController {
         setPickNumberLabel(blackCard: blackCard)
     }
     
+    func toggleEnabledButtonState(for button: UIButton) {
+        button.isEnabled = !button.isEnabled
+        toggleDisabledButtonStyling(for: button)
+    }
+    
+    func toggleDisabledButtonStyling(for button: UIButton) {
+        if !button.isEnabled {
+            button.alpha = 0.5
+        } else {
+            button.alpha = 1.0
+        }
+    }
+    
     // MARK: Actions
     
     @IBAction func userTappedPhraseOne(_ sender: BorderedButton) {
@@ -174,6 +192,8 @@ class PlayViewController: UIViewController {
             updatePickNumberLabel()
             if selectionLimit == 0 {
                 clearPickNumberLabel()
+                toggleEnabledButtonState(for: seeSelectionButton)
+                
             }
         } else {
             print("No more choices!")
@@ -189,6 +209,7 @@ class PlayViewController: UIViewController {
             updatePickNumberLabel()
             if selectionLimit == 0 {
                 clearPickNumberLabel()
+                toggleEnabledButtonState(for: seeSelectionButton)
             }
         } else {
             print("No more choices!")
@@ -204,6 +225,7 @@ class PlayViewController: UIViewController {
             updatePickNumberLabel()
             if selectionLimit == 0 {
                 clearPickNumberLabel()
+                toggleEnabledButtonState(for: seeSelectionButton)
             }
         } else {
             print("No more choices!")
