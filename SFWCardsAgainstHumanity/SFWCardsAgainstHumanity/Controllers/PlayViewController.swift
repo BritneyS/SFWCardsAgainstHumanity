@@ -55,7 +55,7 @@ class PlayViewController: UIViewController {
 //            print("Black Cards: \(card.text!)")
         let session = URLSession.shared
         
-        let dataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
+        let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
             data, response, error in
             if let error = error {
                 print("Failure in data task! \(error)")
@@ -80,38 +80,34 @@ class PlayViewController: UIViewController {
                 self.showNetworkError()
             }
         })
-        dataTask.resume()
+        whiteCardDataTask.resume()
         
-    
-        
-        /*
-          let url = iTunesURL(searchText: searchBar.text!)
-            let session = URLSession.shared
-         
-            let dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
-                if let error = error {
-                    print("Failure! \(error)")
-                } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                    //print("Success! \(data!)")
-                    if let data = data {
-                        self.searchResults = self.parse(data: data)
-                        DispatchQueue.main.async {
-                            self.isLoading = false
-                            self.tableView.reloadData()
-                        }
+        let blackCardDataTask = session.dataTask(with: blackCardUrl, completionHandler: {
+            data, response, error in
+            if let error = error {
+                print("Failure in data task! \(error)")
+            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Successful response! \(data!)")
+                if let data = data {
+                    self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
+                    print("Black Card JSON parsed: \(self.blackCardsJSON)")
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        //self.view.reloadInputViews()
                     }
-                        return
-                } else {
-                    print("Failure! \(response!)")
                 }
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                    self.tableView.reloadData()
-                    self.showNetworkError()
-                }
-            })
-            dataTask.resume()
-         */
+                
+                return
+            } else {
+                print("Failure in response! \(response!)")
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
+                //self.view.reloadInputViews()
+                self.showNetworkError()
+            }
+        })
+        blackCardDataTask.resume()
     }
     
     func newRound() {
