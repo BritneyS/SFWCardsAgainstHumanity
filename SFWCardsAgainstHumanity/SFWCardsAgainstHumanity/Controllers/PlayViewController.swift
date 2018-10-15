@@ -66,7 +66,7 @@ class PlayViewController: UIViewController {
                     print("White Card JSON parsed: \(self.whiteCardsJSON)")
                     DispatchQueue.main.async {
                         self.isLoading = false
-                        //self.view.reloadInputViews()
+                        self.setWhiteCardButtonTitles()
                     }
                 }
                 
@@ -76,7 +76,7 @@ class PlayViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.isLoading = false
-                //self.view.reloadInputViews()
+               
                 self.showNetworkError()
             }
         })
@@ -93,21 +93,22 @@ class PlayViewController: UIViewController {
                     print("Black Card JSON parsed: \(self.blackCardsJSON)")
                     DispatchQueue.main.async {
                         self.isLoading = false
-                        //self.view.reloadInputViews()
+                        self.checkBlackCard()
                     }
                 }
-                
                 return
             } else {
                 print("Failure in response! \(response!)")
             }
             DispatchQueue.main.async {
                 self.isLoading = false
-                //self.view.reloadInputViews()
                 self.showNetworkError()
             }
         })
         blackCardDataTask.resume()
+        
+    
+    
     }
     
     func newRound() {
@@ -126,6 +127,7 @@ class PlayViewController: UIViewController {
     
     func chooseRandomBlackCard() -> BlackCard? {
         guard let blackCard = blackCardsJSON.randomElement() else { return nil }
+        print("😍chosen Black Card: \(blackCard)")
         return blackCard
     }
     
