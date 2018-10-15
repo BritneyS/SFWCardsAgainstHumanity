@@ -17,9 +17,10 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var whiteCardPhrase2Button: BorderedButton!
     @IBOutlet weak var whiteCardPhrase3Button: BorderedButton!
     @IBOutlet weak var pickNumberLabel: UILabel!
+    @IBOutlet weak var seeSelectionButton: UIButton!
+    
     
     // MARK: Properties
-    
     
     var whiteCardsJSON: WhiteCards? = nil
     var blackCardsJSON: [BlackCard] = []
@@ -28,72 +29,30 @@ class PlayViewController: UIViewController {
     var whiteCard2: String?
     var whiteCard3: String?
     var isLoading = false
-    
+    var selection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
+    var selectionLimit = 0
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        toggleEnabledButtonState(for: seeSelectionButton)
         getCardData()
     }
     
     // MARK: Methods
     
-    func getCardData() {
+    func setWhiteCardButtonTitles() {
+        guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
+        let shuffledWhiteCards = whiteCardPhrases.shuffled()
         
-        guard let whiteCardUrl = self.whiteCardsURL() else { return }
-        guard let blackCardUrl = self.blackCardsURL() else { return }
-
-        let session = URLSession.shared
+        whiteCard1 = shuffledWhiteCards[0]
+        whiteCard2 = shuffledWhiteCards[1]
+        whiteCard3 = shuffledWhiteCards[2]
         
-        let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
-            data, response, error in
-            if let error = error {
-                print("Failure in data task! \(error)")
-            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                print("Successful response! \(data!)")
-                if let data = data {
-                    self.whiteCardsJSON = self.parseWhiteCard(data: data) ?? nil
-                    DispatchQueue.main.async {
-                        self.isLoading = false
-                        self.setWhiteCardButtonTitles()
-                    }
-                }
-                return
-            } else {
-                print("Failure in response! \(response!)")
-            }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                self.showNetworkError()
-            }
-        })
-        whiteCardDataTask.resume()
-        
-        let blackCardDataTask = session.dataTask(with: blackCardUrl, completionHandler: {
-            data, response, error in
-            if let error = error {
-                print("Failure in data task! \(error)")
-            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                print("Successful response! \(data!)")
-                if let data = data {
-                    self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
-                    DispatchQueue.main.async {
-                        self.isLoading = false
-                        self.checkBlackCard()
-                    }
-                }
-                return
-            } else {
-                print("Failure in response! \(response!)")
-            }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                self.showNetworkError()
-            }
-        })
-        blackCardDataTask.resume()
-
+        whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
+        whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
+        whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
     }
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
@@ -113,10 +72,37 @@ class PlayViewController: UIViewController {
     func checkBlackCard() {
         guard let blackCard = chooseRandomBlackCard() else { return }
         if !isBlackCardTextEmpty(in: blackCard) {
+            saveBlackCardSelection(of: blackCard)
             setBlackCardLabel(for: blackCard)
         } else {
             checkBlackCard()
         }
+    }
+    
+    func saveBlackCardSelection(of blackCard: BlackCard) {
+        selection.blackCard = blackCard
+    }
+    
+    func setSelectionLimit(to pickNumber: Int) {
+        selectionLimit = pickNumber
+    }
+    
+    func reduceSelectionLimit() {
+        self.selectionLimit -= 1
+    }
+    
+    func updatePickNumberLabel() {
+        pickNumberLabel.text = "Choose \(self.selectionLimit)!"
+    }
+    
+    func clearPickNumberLabel() {
+        pickNumberLabel.text = ""
+    }
+    
+    func setPickNumberLabel(blackCard: BlackCard) {
+        guard let pickNumber = blackCard.pick else { return }
+        setSelectionLimit(to: pickNumber)
+        updatePickNumberLabel()
     }
     
     func setBlackCardLabel(for blackCard: BlackCard) {
@@ -124,25 +110,39 @@ class PlayViewController: UIViewController {
         setPickNumberLabel(blackCard: blackCard)
     }
     
-    func setPickNumberLabel(blackCard: BlackCard) {
-        guard let pickNumber = blackCard.pick else { return }
-        pickNumberLabel.text = "Choose \(pickNumber)!"
+    func toggleEnabledButtonState(for button: UIButton) {
+        button.isEnabled = !button.isEnabled
+        toggleDisabledButtonStyling(for: button)
     }
     
-    func setWhiteCardButtonTitles() {
-        guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
-        let shuffledWhiteCards = whiteCardPhrases.shuffled()
-        
-        whiteCard1 = shuffledWhiteCards[0]
-        whiteCard2 = shuffledWhiteCards[1]
-        whiteCard3 = shuffledWhiteCards[2]
-        
-        whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
-        whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
-        whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
+    func toggleDisabledButtonStyling(for button: UIButton) {
+        if !button.isEnabled {
+            button.alpha = 0.5
+        } else {
+            button.alpha = 1.0
+        }
     }
     
-
+    // MARK: Actions
+    
+    @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
+        let button = sender
+        guard let phrase = button.currentTitle else { return }
+        if selectionLimit > 0 {
+            selection.whiteCardPhrases.append(phrase)
+            reduceSelectionLimit()
+            updatePickNumberLabel()
+            if selectionLimit == 0 {
+                clearPickNumberLabel()
+                toggleEnabledButtonState(for: seeSelectionButton)
+                
+            }
+        } else {
+            print("No more choices!")
+        }
+        print(selection)
+    }
+    
 }
 
 
@@ -193,6 +193,63 @@ extension PlayViewController {
             print("JSON Error \(error)")
             return nil
         }
+    }
+    
+    func getCardData() {
+        
+        guard let whiteCardUrl = self.whiteCardsURL() else { return }
+        guard let blackCardUrl = self.blackCardsURL() else { return }
+        
+        let session = URLSession.shared
+        
+        let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
+            data, response, error in
+            if let error = error {
+                print("Failure in data task! \(error)")
+            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Successful response! \(data!)")
+                if let data = data {
+                    self.whiteCardsJSON = self.parseWhiteCard(data: data) ?? nil
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        self.setWhiteCardButtonTitles()
+                    }
+                }
+                return
+            } else {
+                print("Failure in response! \(response!)")
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.showNetworkError()
+            }
+        })
+        whiteCardDataTask.resume()
+        
+        let blackCardDataTask = session.dataTask(with: blackCardUrl, completionHandler: {
+            data, response, error in
+            if let error = error {
+                print("Failure in data task! \(error)")
+            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Successful response! \(data!)")
+                if let data = data {
+                    self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        self.checkBlackCard()
+                    }
+                }
+                return
+            } else {
+                print("Failure in response! \(response!)")
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.showNetworkError()
+            }
+        })
+        blackCardDataTask.resume()
+        
     }
     
 }
