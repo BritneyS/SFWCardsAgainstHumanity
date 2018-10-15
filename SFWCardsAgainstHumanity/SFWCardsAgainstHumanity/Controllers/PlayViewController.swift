@@ -130,7 +130,7 @@ class PlayViewController: UIViewController {
     
     func checkBlackCard() {
         guard let blackCard = chooseRandomBlackCard() else { return }
-        if !isBlackCardTextEmpty(in: blackCard) && blackCard.pick == 3 {
+        if !isBlackCardTextEmpty(in: blackCard) {
             saveBlackCardSelection(of: blackCard)
             setBlackCardLabel(for: blackCard)
         } else {
