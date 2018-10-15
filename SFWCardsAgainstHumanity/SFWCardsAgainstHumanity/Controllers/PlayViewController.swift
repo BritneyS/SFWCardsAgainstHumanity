@@ -23,19 +23,18 @@ class PlayViewController: UIViewController {
     
     var whiteCardsJSON: WhiteCards? = nil
     var blackCardsJSON: [BlackCard] = []
-    
-    
     var blackCard: BlackCard?
     var whiteCard1: String?
     var whiteCard2: String?
     var whiteCard3: String?
+    var isLoading = false
     
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newRound()
+        getCardData()
     }
     
     // MARK: Methods
@@ -44,27 +43,62 @@ class PlayViewController: UIViewController {
         
         guard let whiteCardUrl = self.whiteCardsURL() else { return }
         guard let blackCardUrl = self.blackCardsURL() else { return }
-        guard let jsonStringWhiteCard = performCardRequest(with: whiteCardUrl) else { return }
-        guard let jsonStringBlackCard = performCardRequest(with: blackCardUrl) else { return }
+
+        let session = URLSession.shared
         
-        self.whiteCardsJSON = parseWhiteCard(data: jsonStringWhiteCard) ?? nil
-        self.blackCardsJSON = parseBlackCard(data: jsonStringBlackCard) ?? []
+        let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
+            data, response, error in
+            if let error = error {
+                print("Failure in data task! \(error)")
+            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Successful response! \(data!)")
+                if let data = data {
+                    self.whiteCardsJSON = self.parseWhiteCard(data: data) ?? nil
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        self.setWhiteCardButtonTitles()
+                    }
+                }
+                return
+            } else {
+                print("Failure in response! \(response!)")
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.showNetworkError()
+            }
+        })
+        whiteCardDataTask.resume()
         
-        print("White Cards: \(whiteCardsJSON!)")
-        
-        for card in blackCardsJSON {
-            print("Black Cards: \(card.text!)")
-        }
-    }
-    
-    func newRound() {
-        getCardData()
-        checkBlackCard()
-        setWhiteCardButtonTitles()
+        let blackCardDataTask = session.dataTask(with: blackCardUrl, completionHandler: {
+            data, response, error in
+            if let error = error {
+                print("Failure in data task! \(error)")
+            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Successful response! \(data!)")
+                if let data = data {
+                    self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        self.checkBlackCard()
+                    }
+                }
+                return
+            } else {
+                print("Failure in response! \(response!)")
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.showNetworkError()
+            }
+        })
+        blackCardDataTask.resume()
+
     }
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
-        if (blackCard.text?.isEmpty)! {
+        guard let blackCardText = blackCard.text else { return false }
+        if blackCardText.isEmpty {
             return true
         } else {
             return false
@@ -127,16 +161,6 @@ extension PlayViewController {
         let urlString = "http://localhost:3000/whiteCards"
         guard let url = URL(string: urlString) else { return nil }
         return url
-    }
-    
-    func performCardRequest(with url: URL) -> Data? {
-        do {
-            return try Data(contentsOf: url)
-        } catch {
-            print("Download Error: \(error.localizedDescription)")
-            showNetworkError()
-            return nil
-        }
     }
     
     func showNetworkError() {
