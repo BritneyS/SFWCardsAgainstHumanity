@@ -139,6 +139,10 @@ class PlayViewController: UIViewController {
         pickNumberLabel.text = "Choose \(pickNumber)!"
     }
     
+    func updatePickNumberLabel(with selectionRemaining: Int) {
+        pickNumberLabel.text = "Choose \(selectionRemaining)!" //TODO set selection remaining to --pickNumber
+    }
+    
     func setWhiteCardButtonTitles() {
         guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
         let shuffledWhiteCards = whiteCardPhrases.shuffled()
