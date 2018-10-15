@@ -20,7 +20,6 @@ class PlayViewController: UIViewController {
     
     // MARK: Properties
     
-    
     var whiteCardsJSON: WhiteCards? = nil
     var blackCardsJSON: [BlackCard] = []
     var blackCard: BlackCard?
@@ -28,7 +27,8 @@ class PlayViewController: UIViewController {
     var whiteCard2: String?
     var whiteCard3: String?
     var isLoading = false
-    
+    var selection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
+    var selectionLimit = 0
     
     // MARK: Lifecycle
     
@@ -113,10 +113,19 @@ class PlayViewController: UIViewController {
     func checkBlackCard() {
         guard let blackCard = chooseRandomBlackCard() else { return }
         if !isBlackCardTextEmpty(in: blackCard) {
+            saveBlackCardSelection(of: blackCard)
             setBlackCardLabel(for: blackCard)
         } else {
             checkBlackCard()
         }
+    }
+    
+    func saveBlackCardSelection(of blackCard: BlackCard) {
+        selection.blackCard = blackCard
+    }
+    
+    func setSelectionLimit(to pickNumber: Int) {
+        selectionLimit = pickNumber
     }
     
     func setBlackCardLabel(for blackCard: BlackCard) {
@@ -126,6 +135,7 @@ class PlayViewController: UIViewController {
     
     func setPickNumberLabel(blackCard: BlackCard) {
         guard let pickNumber = blackCard.pick else { return }
+        setSelectionLimit(to: pickNumber)
         pickNumberLabel.text = "Choose \(pickNumber)!"
     }
     
@@ -142,7 +152,30 @@ class PlayViewController: UIViewController {
         whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
     }
     
-
+    // MARK: Actions
+    
+    @IBAction func userTappedPhraseOne(_ sender: BorderedButton) {
+        guard let phraseOne = whiteCardPhrase1Button.currentTitle else { return }
+        if selection.whiteCardPhrases.count < selectionLimit {
+            selection.whiteCardPhrases.append(phraseOne)
+        } else {
+            print("No more choices!")
+        }
+        print(selection)
+    }
+    
+    @IBAction func userTappedPhraseTwo(_ sender: BorderedButton) {
+        guard let phraseTwo = whiteCardPhrase2Button.currentTitle else { return }
+        selection.whiteCardPhrases.append(phraseTwo)
+        print(selection)
+    }
+    
+    @IBAction func userTappedPhraseThree(_ sender: BorderedButton) {
+        guard let phraseThree = whiteCardPhrase3Button.currentTitle else { return }
+        selection.whiteCardPhrases.append(phraseThree)
+        print(selection)
+    }
+    
 }
 
 
