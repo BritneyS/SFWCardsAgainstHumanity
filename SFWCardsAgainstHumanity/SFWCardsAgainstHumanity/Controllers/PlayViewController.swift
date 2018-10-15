@@ -149,6 +149,10 @@ class PlayViewController: UIViewController {
         pickNumberLabel.text = "Choose \(self.selectionLimit)!"
     }
     
+    func clearPickNumberLabel() {
+        pickNumberLabel.text = ""
+    }
+    
     func setPickNumberLabel(blackCard: BlackCard) {
         guard let pickNumber = blackCard.pick else { return }
         setSelectionLimit(to: pickNumber)
@@ -168,6 +172,9 @@ class PlayViewController: UIViewController {
             selection.whiteCardPhrases.append(phraseOne)
             reduceSelectionLimit()
             updatePickNumberLabel()
+            if selectionLimit == 0 {
+                clearPickNumberLabel()
+            }
         } else {
             print("No more choices!")
         }
@@ -180,6 +187,9 @@ class PlayViewController: UIViewController {
             selection.whiteCardPhrases.append(phraseTwo)
             reduceSelectionLimit()
             updatePickNumberLabel()
+            if selectionLimit == 0 {
+                clearPickNumberLabel()
+            }
         } else {
             print("No more choices!")
         }
@@ -192,6 +202,9 @@ class PlayViewController: UIViewController {
             selection.whiteCardPhrases.append(phraseThree)
             reduceSelectionLimit()
             updatePickNumberLabel()
+            if selectionLimit == 0 {
+                clearPickNumberLabel()
+            }
         } else {
             print("No more choices!")
         }
