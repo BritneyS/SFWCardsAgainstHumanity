@@ -128,7 +128,6 @@ class PlayViewController: UIViewController {
         
         for button in buttonArray {
             guard let button = button else { return }
-            print("🦊 button selected state of \(button.currentTitle!): \(button.isSelected)")
             if button.isSelected == false {
                 toggleEnabledButtonState(for: button)
             }
