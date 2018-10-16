@@ -123,19 +123,31 @@ class PlayViewController: UIViewController {
         }
     }
     
+    func disableOtherOptions() {
+        let buttonArray = [whiteCardPhrase1Button, whiteCardPhrase2Button, whiteCardPhrase3Button]
+        
+        for button in buttonArray {
+            guard let button = button else { return }
+            if button.isSelected == false {
+                toggleEnabledButtonState(for: button)
+            }
+        }
+    }
+    
     // MARK: Actions
     
     @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
         let button = sender
         guard let phrase = button.currentTitle else { return }
         if selectionLimit > 0 {
+            button.isSelected = true
             selection.whiteCardPhrases.append(phrase)
             reduceSelectionLimit()
             updatePickNumberLabel()
             if selectionLimit == 0 {
                 clearPickNumberLabel()
                 toggleEnabledButtonState(for: seeSelectionButton)
-                
+                disableOtherOptions()
             }
         } else {
             print("No more choices!")
