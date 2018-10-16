@@ -59,9 +59,15 @@ class PlayViewController: UIViewController {
         guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
         let shuffledWhiteCards = whiteCardPhrases.shuffled()
         
-        whiteCard1 = decodeHTMLString(for: shuffledWhiteCards[0]!).string
-        whiteCard2 = decodeHTMLString(for: shuffledWhiteCards[1]!).string
-        whiteCard3 = decodeHTMLString(for: shuffledWhiteCards[2]!).string
+        guard
+            let encodedStringOne = shuffledWhiteCards[0],
+            let encodedStringTwo = shuffledWhiteCards[1],
+            let encodedStringThree = shuffledWhiteCards[2]
+        else { return }
+        
+        whiteCard1 = decodeHTMLString(for: encodedStringOne).string
+        whiteCard2 = decodeHTMLString(for: encodedStringTwo).string
+        whiteCard3 = decodeHTMLString(for: encodedStringThree).string
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
@@ -119,7 +125,8 @@ class PlayViewController: UIViewController {
     }
     
     func setBlackCardLabel(for blackCard: BlackCard) {
-        blackCardLabel.text = decodeHTMLString(for: blackCard.text!).string
+        guard let encodedString = blackCard.text else { return }
+        blackCardLabel.text = decodeHTMLString(for: encodedString).string
         setPickNumberLabel(blackCard: blackCard)
     }
     
