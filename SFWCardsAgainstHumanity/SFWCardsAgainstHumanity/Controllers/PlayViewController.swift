@@ -42,13 +42,26 @@ class PlayViewController: UIViewController {
     
     // MARK: Methods
     
+    func decodeHTMLString(for htmlEncodedString: String) -> NSAttributedString {
+        guard let data = htmlEncodedString.data(using: .utf8) else { return NSAttributedString() }
+        
+        do {
+            return try NSAttributedString(data: data, options: [
+                .documentType: NSAttributedString.DocumentType.html,
+                .characterEncoding: String.Encoding.utf8.rawValue
+                ], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    
     func setWhiteCardButtonTitles() {
         guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
         let shuffledWhiteCards = whiteCardPhrases.shuffled()
         
-        whiteCard1 = shuffledWhiteCards[0]
-        whiteCard2 = shuffledWhiteCards[1]
-        whiteCard3 = shuffledWhiteCards[2]
+        whiteCard1 = decodeHTMLString(for: shuffledWhiteCards[0]!).string
+        whiteCard2 = decodeHTMLString(for: shuffledWhiteCards[1]!).string
+        whiteCard3 = decodeHTMLString(for: shuffledWhiteCards[2]!).string
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
@@ -106,7 +119,7 @@ class PlayViewController: UIViewController {
     }
     
     func setBlackCardLabel(for blackCard: BlackCard) {
-        blackCardLabel.text = blackCard.text
+        blackCardLabel.text = decodeHTMLString(for: blackCard.text!).string
         setPickNumberLabel(blackCard: blackCard)
     }
     
