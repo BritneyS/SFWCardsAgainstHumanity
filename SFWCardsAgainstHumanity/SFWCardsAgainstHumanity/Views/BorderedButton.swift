@@ -31,11 +31,11 @@ class BorderedButton: UIButton {
         didSet {
             let fadedColor = tintColor.withAlphaComponent(0.2).cgColor
             let highlightedColor = UIColor(red:1.00, green:0.05, blue:0.48, alpha:1.0).cgColor
-            let highlightedText = UIColor.white.cgColor
             
             if isHighlighted {
                 layer.borderColor = fadedColor
                 layer.backgroundColor = highlightedColor
+                self.setTitleColor(UIColor.white, for: .normal)
             } else {
                 layer.borderColor = tintColor.cgColor
                 
