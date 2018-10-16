@@ -36,11 +36,18 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toggleEnabledButtonState(for: seeSelectionButton)
-        getCardData()
+        newRound()
     }
     
     // MARK: Methods
+    
+    /// TODO: method to reset white card button options and See Selection button
+    
+    func newRound() {
+        seeSelectionButton.isEnabled = false
+        toggleDisabledButtonStyling(for: seeSelectionButton)
+        getCardData()
+    }
     
     func decodeHTMLString(for htmlEncodedString: String) -> NSAttributedString {
         guard let data = htmlEncodedString.data(using: .utf8) else { return NSAttributedString() }
@@ -176,6 +183,7 @@ class PlayViewController: UIViewController {
     }
     
     @IBAction func userTappedNewRoundButton(_ sender: UIButton) {
+        newRound()
     }
     
     
