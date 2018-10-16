@@ -127,8 +127,10 @@ class PlayViewController: UIViewController {
         let buttonArray = [whiteCardPhrase1Button, whiteCardPhrase2Button, whiteCardPhrase3Button]
         
         for button in buttonArray {
-            if !button!.isHighlighted {
-                toggleEnabledButtonState(for: button!)
+            guard let button = button else { return }
+            print("🦊 button selected state of \(button.currentTitle!): \(button.isSelected)")
+            if button.isSelected == false {
+                toggleEnabledButtonState(for: button)
             }
         }
     }
@@ -139,6 +141,7 @@ class PlayViewController: UIViewController {
         let button = sender
         guard let phrase = button.currentTitle else { return }
         if selectionLimit > 0 {
+            button.isSelected = true
             selection.whiteCardPhrases.append(phrase)
             reduceSelectionLimit()
             updatePickNumberLabel()

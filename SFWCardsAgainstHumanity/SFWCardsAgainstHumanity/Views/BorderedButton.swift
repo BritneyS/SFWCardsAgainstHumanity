@@ -27,21 +27,44 @@ class BorderedButton: UIButton {
         layer.borderColor = tintColor.cgColor
     }
     
+    override var isSelected: Bool {
+        didSet {
+            let fadedColor = tintColor.withAlphaComponent(0.2).cgColor
+            let highlightedColor = UIColor(red:1.00, green:0.05, blue:0.48, alpha:1.0)
+            //To get rid of the tint background upon selection
+            self.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+            if isSelected {
+                layer.borderColor = UIColor.black.cgColor
+                self.backgroundColor = highlightedColor
+                self.setTitleColor(UIColor.white, for: .normal)
+                self.isEnabled = false
+            } else {
+                layer.borderColor = tintColor.cgColor
+                
+                let animation = CABasicAnimation(keyPath: "borderColor")
+                animation.fromValue = fadedColor
+                animation.toValue = UIColor.black.cgColor
+                animation.duration = 0.4
+                layer.add(animation, forKey: "")
+            }
+        }
+    }
+    
     override var isHighlighted: Bool {
         didSet {
             let fadedColor = tintColor.withAlphaComponent(0.2).cgColor
             let highlightedColor = UIColor(red:1.00, green:0.05, blue:0.48, alpha:1.0).cgColor
             
             if isHighlighted {
-                layer.borderColor = fadedColor
+                layer.borderColor = UIColor.black.cgColor
                 layer.backgroundColor = highlightedColor
                 self.setTitleColor(UIColor.white, for: .normal)
             } else {
-                layer.borderColor = tintColor.cgColor
+                layer.borderColor = UIColor.black.cgColor
                 
                 let animation = CABasicAnimation(keyPath: "borderColor")
                 animation.fromValue = fadedColor
-                animation.toValue = tintColor.cgColor
+                animation.toValue = UIColor.black.cgColor
                 animation.duration = 0.4
                 layer.add(animation, forKey: "")
             }
