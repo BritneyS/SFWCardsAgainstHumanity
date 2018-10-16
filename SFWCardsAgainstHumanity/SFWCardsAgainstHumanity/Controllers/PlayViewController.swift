@@ -123,6 +123,16 @@ class PlayViewController: UIViewController {
         }
     }
     
+    func disableOtherOptions() {
+        let buttonArray = [whiteCardPhrase1Button, whiteCardPhrase2Button, whiteCardPhrase3Button]
+        
+        for button in buttonArray {
+            if !button!.isHighlighted {
+                toggleEnabledButtonState(for: button!)
+            }
+        }
+    }
+    
     // MARK: Actions
     
     @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
@@ -135,14 +145,7 @@ class PlayViewController: UIViewController {
             if selectionLimit == 0 {
                 clearPickNumberLabel()
                 toggleEnabledButtonState(for: seeSelectionButton)
-                
-                let buttonArray = [whiteCardPhrase1Button, whiteCardPhrase2Button, whiteCardPhrase3Button]
-                
-                for button in buttonArray {
-                    if !button!.isHighlighted {
-                        toggleEnabledButtonState(for: button!)
-                    }
-                }
+                disableOtherOptions()
             }
         } else {
             print("No more choices!")
