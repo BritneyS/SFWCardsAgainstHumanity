@@ -136,6 +136,13 @@ class PlayViewController: UIViewController {
                 clearPickNumberLabel()
                 toggleEnabledButtonState(for: seeSelectionButton)
                 
+                let buttonArray = [whiteCardPhrase1Button, whiteCardPhrase2Button, whiteCardPhrase3Button]
+                
+                for button in buttonArray {
+                    if !button!.isHighlighted {
+                        toggleEnabledButtonState(for: button!)
+                    }
+                }
             }
         } else {
             print("No more choices!")
