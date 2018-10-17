@@ -171,6 +171,13 @@
                                         <color key="textColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="whiteCardLabelOne" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV9-tE-cte" customClass="BorderedLabel" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="190" width="224" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -181,6 +188,7 @@
                     <connections>
                         <outlet property="blackCardLabel" destination="aef-Mj-Nnd" id="Mgd-Qx-4io"/>
                         <outlet property="modalSelectionView" destination="V60-zr-QWA" id="uEo-11-iCD"/>
+                        <outlet property="whiteCardOneLabel" destination="GV9-tE-cte" id="qwc-08-TXJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ay-IL-tVd" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,6 +20,7 @@
 		06B44071216E8A1A0062BEDF /* WhiteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44070216E8A1A0062BEDF /* WhiteCard.swift */; };
 		06B44073216F88090062BEDF /* BlackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44072216F88090062BEDF /* BlackCard.swift */; };
 		06B440772177859E0062BEDF /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B440762177859E0062BEDF /* SelectionViewController.swift */; };
+		06B440792177AF8D0062BEDF /* BorderedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B440782177AF8D0062BEDF /* BorderedLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		06B44070216E8A1A0062BEDF /* WhiteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteCard.swift; sourceTree = "<group>"; };
 		06B44072216F88090062BEDF /* BlackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackCard.swift; sourceTree = "<group>"; };
 		06B440762177859E0062BEDF /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
+		06B440782177AF8D0062BEDF /* BorderedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				06B44055216BA5FA0062BEDF /* LaunchScreen.storyboard */,
 				06B44050216BA5F90062BEDF /* Main.storyboard */,
 				06B4406E216E377D0062BEDF /* BorderedButton.swift */,
+				06B440782177AF8D0062BEDF /* BorderedLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				06B44064216BD4230062BEDF /* IdentityEnum.swift in Sources */,
 				06B44071216E8A1A0062BEDF /* WhiteCard.swift in Sources */,
 				06B44061216BCAF00062BEDF /* HomeViewController.swift in Sources */,
+				06B440792177AF8D0062BEDF /* BorderedLabel.swift in Sources */,
 				06B4406F216E377D0062BEDF /* BorderedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

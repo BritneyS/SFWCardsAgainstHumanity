@@ -14,6 +14,9 @@ class SelectionViewController: UIViewController {
     
     @IBOutlet weak var modalSelectionView: UIView!
     @IBOutlet weak var blackCardLabel: UILabel!
+    @IBOutlet weak var whiteCardOneLabel: BorderedLabel!
+    
+    
     
     // MARK: Properties
     
