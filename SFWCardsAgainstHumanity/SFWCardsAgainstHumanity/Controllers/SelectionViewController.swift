@@ -29,7 +29,8 @@ class SelectionViewController: UIViewController {
         
         print("🃏In Selection View: \(currentSelection)")
         populateBlackCardLabel()
-        populateWhiteCardLabels(with: currentSelection.blackCard!)
+        guard let blackCard = currentSelection.blackCard else { return }
+        populateWhiteCardLabels(with: blackCard)
     }
     
     // MARK: Methods
@@ -53,11 +54,12 @@ class SelectionViewController: UIViewController {
     
     func populateWhiteCardLabels(with blackCard: BlackCard) {
         let labelArray = [whiteCardOneLabel, whiteCardTwoLabel, whiteCardThreeLabel]
-        let optionNumber = blackCard.pick
-        hideUnusedWhiteCardLabels(max: optionNumber!)
+        guard let optionNumber = blackCard.pick else { return }
+        hideUnusedWhiteCardLabels(max: optionNumber)
 
         for (index, label) in labelArray.enumerated() {
-            if label!.isHidden == false {
+            guard let label = label else { return }
+            if label.isHidden == false {
                 labelArray[index]?.text = currentSelection.whiteCardPhrases[index]
             }
         }
