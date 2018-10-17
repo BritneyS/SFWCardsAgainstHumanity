@@ -71,15 +71,11 @@ class PlayViewController: UIViewController {
         guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
         let shuffledWhiteCards = whiteCardPhrases.shuffled()
         
-//        guard
-//            let encodedStringOne = shuffledWhiteCards[0],
-//            let encodedStringTwo = shuffledWhiteCards[1],
-//            let encodedStringThree = shuffledWhiteCards[2]
-//        else { return }
-        
-        let encodedStringOne = "&reg;"
-        let encodedStringTwo = "&reg;"
-        let encodedStringThree = "&reg;"
+        guard
+            let encodedStringOne = shuffledWhiteCards[0],
+            let encodedStringTwo = shuffledWhiteCards[1],
+            let encodedStringThree = shuffledWhiteCards[2]
+        else { return }
         
         whiteCard1 = HTMLDecode.decodeHTMLString(for: encodedStringOne).string
         whiteCard2 = HTMLDecode.decodeHTMLString(for: encodedStringTwo).string
@@ -106,7 +102,7 @@ class PlayViewController: UIViewController {
     
     func checkBlackCard() {
         guard let blackCard = chooseRandomBlackCard() else { return }
-        if !isBlackCardTextEmpty(in: blackCard) && (blackCard.text?.contains("&reg;"))! {
+        if !isBlackCardTextEmpty(in: blackCard) {
             saveBlackCardSelection(of: blackCard)
             setBlackCardLabel(for: blackCard)
         } else {
