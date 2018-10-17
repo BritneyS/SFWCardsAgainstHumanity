@@ -28,8 +28,15 @@ class SelectionViewController: UIViewController {
         super.viewDidLoad()
         
         print("🃏In Selection View: \(currentSelection)")
+        populateBlackCardLabel()
     }
     
+    // MARK: Methods
+    
+    func populateBlackCardLabel() {
+        guard let blackCard = currentSelection.blackCard else { return }
+        blackCardLabel.text = blackCard.text
+    }
 
 
 }
