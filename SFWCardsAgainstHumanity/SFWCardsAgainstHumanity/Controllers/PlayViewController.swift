@@ -67,19 +67,6 @@ class PlayViewController: UIViewController {
         getCardData()
     }
     
-    func decodeHTMLString(for htmlEncodedString: String) -> NSAttributedString {
-        guard let data = htmlEncodedString.data(using: .utf8) else { return NSAttributedString() }
-        
-        do {
-            return try NSAttributedString(data: data, options: [
-                .documentType: NSAttributedString.DocumentType.html,
-                .characterEncoding: String.Encoding.utf8.rawValue
-                ], documentAttributes: nil)
-        } catch {
-            return NSAttributedString()
-        }
-    }
-    
     func setWhiteCardButtonTitles() {
         guard let whiteCardPhrases = whiteCardsJSON?.phrases else { return }
         let shuffledWhiteCards = whiteCardPhrases.shuffled()
@@ -94,9 +81,9 @@ class PlayViewController: UIViewController {
         let encodedStringTwo = "&reg;"
         let encodedStringThree = "&reg;"
         
-        whiteCard1 = decodeHTMLString(for: encodedStringOne).string
-        whiteCard2 = decodeHTMLString(for: encodedStringTwo).string
-        whiteCard3 = decodeHTMLString(for: encodedStringThree).string
+        whiteCard1 = HTMLDecode.decodeHTMLString(for: encodedStringOne).string
+        whiteCard2 = HTMLDecode.decodeHTMLString(for: encodedStringTwo).string
+        whiteCard3 = HTMLDecode.decodeHTMLString(for: encodedStringThree).string
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
@@ -155,7 +142,7 @@ class PlayViewController: UIViewController {
     
     func setBlackCardLabel(for blackCard: BlackCard) {
         guard let encodedString = blackCard.text else { return }
-        blackCardLabel.text = decodeHTMLString(for: encodedString).string
+        blackCardLabel.text = HTMLDecode.decodeHTMLString(for: encodedString).string
         setPickNumberLabel(blackCard: blackCard)
     }
     
