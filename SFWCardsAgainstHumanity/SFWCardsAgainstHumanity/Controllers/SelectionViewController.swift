@@ -28,15 +28,16 @@ class SelectionViewController: UIViewController {
         super.viewDidLoad()
         
         print("🃏In Selection View: \(currentSelection)")
-        populateBlackCardLabel()
-        guard let blackCard = currentSelection.blackCard else { return }
-        populateWhiteCardLabels(with: blackCard)
+        populateAllLabels()
+        //populateBlackCardLabel()
+        //guard let blackCard = currentSelection.blackCard else { return }
+        //populateWhiteCardLabels(with: blackCard)
     }
     
     // MARK: Methods
     
-    func populateBlackCardLabel() {
-        guard let blackCard = currentSelection.blackCard else { return }
+    func populateBlackCardLabel(with blackCard: BlackCard) {
+        //guard let blackCard = currentSelection.blackCard else { return }
         blackCardLabel.text = blackCard.text
     }
     
@@ -52,7 +53,7 @@ class SelectionViewController: UIViewController {
         }
     }
     
-    func populateWhiteCardLabels(with blackCard: BlackCard) {
+    func populateWhiteCardLabels(linkedTo blackCard: BlackCard) {
         let labelArray = [whiteCardOneLabel, whiteCardTwoLabel, whiteCardThreeLabel]
         guard let optionNumber = blackCard.pick else { return }
         hideUnusedWhiteCardLabels(max: optionNumber)
@@ -63,6 +64,12 @@ class SelectionViewController: UIViewController {
                 labelArray[index]?.text = currentSelection.whiteCardPhrases[index]
             }
         }
+    }
+    
+    func populateAllLabels() {
+        guard let blackCard = currentSelection.blackCard else { return }
+        populateBlackCardLabel(with: blackCard)
+        populateWhiteCardLabels(linkedTo: blackCard)
     }
 
 
