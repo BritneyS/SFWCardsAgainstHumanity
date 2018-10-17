@@ -14,6 +14,10 @@ class SelectionViewController: UIViewController {
     
     @IBOutlet weak var modalSelectionView: UIView!
     @IBOutlet weak var blackCardLabel: UILabel!
+    @IBOutlet weak var whiteCardOneLabel: BorderedLabel!
+    @IBOutlet weak var whiteCardTwoLabel: BorderedLabel!
+    @IBOutlet weak var whiteCardThreeLabel: BorderedLabel!
+    
     
     // MARK: Properties
     
@@ -24,8 +28,46 @@ class SelectionViewController: UIViewController {
         super.viewDidLoad()
         
         print("🃏In Selection View: \(currentSelection)")
+        populateAllLabels()
     }
     
+    // MARK: Methods
+    
+    func populateBlackCardLabel(with blackCard: BlackCard) {
+        guard let blackCardText = blackCard.text else { return }
+        blackCardLabel.text = HTMLDecode.decodeHTMLString(for: blackCardText).string
+    }
+    
+    func hideUnusedWhiteCardLabels(max number: Int) {
+        switch number {
+        case 1:
+            whiteCardTwoLabel.isHidden = true
+            whiteCardThreeLabel.isHidden = true
+        case 2:
+            whiteCardThreeLabel.isHidden = true
+        default:
+            return
+        }
+    }
+    
+    func populateWhiteCardLabels(linkedTo blackCard: BlackCard) {
+        let labelArray = [whiteCardOneLabel, whiteCardTwoLabel, whiteCardThreeLabel]
+        guard let optionNumber = blackCard.pick else { return }
+        hideUnusedWhiteCardLabels(max: optionNumber)
+
+        for (index, label) in labelArray.enumerated() {
+            guard let label = label else { return }
+            if label.isHidden == false {
+                labelArray[index]?.text = currentSelection.whiteCardPhrases[index]
+            }
+        }
+    }
+    
+    func populateAllLabels() {
+        guard let blackCard = currentSelection.blackCard else { return }
+        populateBlackCardLabel(with: blackCard)
+        populateWhiteCardLabels(linkedTo: blackCard)
+    }
 
 
 }
