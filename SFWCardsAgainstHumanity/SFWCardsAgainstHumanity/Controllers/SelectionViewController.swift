@@ -34,7 +34,8 @@ class SelectionViewController: UIViewController {
     // MARK: Methods
     
     func populateBlackCardLabel(with blackCard: BlackCard) {
-        blackCardLabel.text = blackCard.text
+        guard let blackCardText = blackCard.text else { return }
+        blackCardLabel.text = HTMLDecode.decodeHTMLString(for: blackCardText).string
     }
     
     func hideUnusedWhiteCardLabels(max number: Int) {
