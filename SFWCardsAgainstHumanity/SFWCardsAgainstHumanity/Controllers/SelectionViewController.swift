@@ -23,7 +23,7 @@ class SelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(currentSelection)
+        print("🃏In Selection View: \(currentSelection)")
     }
     
 
