@@ -29,15 +29,11 @@ class SelectionViewController: UIViewController {
         
         print("🃏In Selection View: \(currentSelection)")
         populateAllLabels()
-        //populateBlackCardLabel()
-        //guard let blackCard = currentSelection.blackCard else { return }
-        //populateWhiteCardLabels(with: blackCard)
     }
     
     // MARK: Methods
     
     func populateBlackCardLabel(with blackCard: BlackCard) {
-        //guard let blackCard = currentSelection.blackCard else { return }
         blackCardLabel.text = blackCard.text
     }
     
