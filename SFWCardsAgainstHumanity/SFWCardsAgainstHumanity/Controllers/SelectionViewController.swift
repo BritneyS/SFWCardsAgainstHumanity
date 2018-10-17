@@ -69,5 +69,11 @@ class SelectionViewController: UIViewController {
         populateWhiteCardLabels(linkedTo: blackCard)
     }
 
+    // MARK: Actions
+    
+    @IBAction func userTappedDismissButton(_ sender: BorderedButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }
