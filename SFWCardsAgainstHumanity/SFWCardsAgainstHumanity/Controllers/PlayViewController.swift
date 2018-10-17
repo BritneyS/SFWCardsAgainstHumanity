@@ -41,11 +41,29 @@ class PlayViewController: UIViewController {
     
     // MARK: Methods
     
-    /// TODO: method to reset white card button options and See Selection button
+    
+    func resetWhiteCardButtons() {
+        let buttonArray = [whiteCardPhrase1Button, whiteCardPhrase2Button, whiteCardPhrase3Button]
+        
+        for button in buttonArray {
+            guard let button = button else { return }
+            button.isSelected = false
+            button.isHighlighted = false
+            
+            if !button.isEnabled {
+                toggleEnabledButtonState(for: button)
+            }
+        }
+    }
+    
+    func resetSeeSelectionButton() {
+        
+    }
     
     func newRound() {
         seeSelectionButton.isEnabled = false
         toggleDisabledButtonStyling(for: seeSelectionButton)
+        resetWhiteCardButtons()
         getCardData()
     }
     
