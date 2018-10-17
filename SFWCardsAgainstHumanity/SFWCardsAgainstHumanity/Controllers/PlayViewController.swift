@@ -57,13 +57,13 @@ class PlayViewController: UIViewController {
     }
     
     func resetSeeSelectionButton() {
-        
+        seeSelectionButton.isEnabled = false
+        toggleDisabledButtonStyling(for: seeSelectionButton)
     }
     
     func newRound() {
-        seeSelectionButton.isEnabled = false
-        toggleDisabledButtonStyling(for: seeSelectionButton)
         resetWhiteCardButtons()
+        resetSeeSelectionButton()
         getCardData()
     }
     
