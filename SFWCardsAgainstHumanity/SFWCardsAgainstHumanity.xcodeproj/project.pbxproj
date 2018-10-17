@@ -19,6 +19,7 @@
 		06B4406F216E377D0062BEDF /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4406E216E377D0062BEDF /* BorderedButton.swift */; };
 		06B44071216E8A1A0062BEDF /* WhiteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44070216E8A1A0062BEDF /* WhiteCard.swift */; };
 		06B44073216F88090062BEDF /* BlackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44072216F88090062BEDF /* BlackCard.swift */; };
+		06B440772177859E0062BEDF /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B440762177859E0062BEDF /* SelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		06B4406E216E377D0062BEDF /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		06B44070216E8A1A0062BEDF /* WhiteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteCard.swift; sourceTree = "<group>"; };
 		06B44072216F88090062BEDF /* BlackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackCard.swift; sourceTree = "<group>"; };
+		06B440762177859E0062BEDF /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				06B44060216BCAF00062BEDF /* HomeViewController.swift */,
 				06B44066216BE6250062BEDF /* PlayViewController.swift */,
+				06B440762177859E0062BEDF /* SelectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				06B4406D216CE5AE0062BEDF /* DeckDatabase.swift in Sources */,
 				06B4404D216BA5F90062BEDF /* AppDelegate.swift in Sources */,
 				06B4406B216CE4230062BEDF /* Deck.swift in Sources */,
+				06B440772177859E0062BEDF /* SelectionViewController.swift in Sources */,
 				06B44064216BD4230062BEDF /* IdentityEnum.swift in Sources */,
 				06B44071216E8A1A0062BEDF /* WhiteCard.swift in Sources */,
 				06B44061216BCAF00062BEDF /* HomeViewController.swift in Sources */,

@@ -118,6 +118,9 @@
                                 <state key="normal" title="See Selection ">
                                     <color key="titleColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="syK-vQ-tIn" kind="presentation" identifier="playToSelection" id="AfY-04-MiS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-in-HkP">
                                 <rect key="frame" x="16" y="617" width="117" height="30"/>
@@ -147,6 +150,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whl-4S-ho2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3888.8000000000002" y="28.335832083958024"/>
+        </scene>
+        <!--Selection View Controller-->
+        <scene sceneID="lPe-1o-QO0">
+            <objects>
+                <viewController id="syK-vQ-tIn" customClass="SelectionViewController" customModule="SFWCardsAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pLr-6K-FPd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Qj6-GQ-K9p"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ay-IL-tVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4910" y="28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mSQ-VR-tv5">

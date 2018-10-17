@@ -13,6 +13,7 @@ enum Identity: String {
     case playVC
     
     case homeToPlaySegue
+    case playToSelectionSegue
     
     var storyboardID: String {
         switch self {
@@ -29,6 +30,8 @@ enum Identity: String {
         switch self {
         case .homeToPlaySegue:
             return "homeToPlay"
+        case.playToSelectionSegue:
+            return "playToSelection"
         default:
             return ""
         }
