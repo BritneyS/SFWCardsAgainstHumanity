@@ -9,14 +9,21 @@
 import UIKit
 
 class SelectionViewController: UIViewController {
-
-    @IBOutlet weak var modalSelectionView: UIView!
     
+    // MARK: Outlets
+    
+    @IBOutlet weak var modalSelectionView: UIView!
     @IBOutlet weak var blackCardLabel: UILabel!
+    
+    // MARK: Properties
+    
+    var currentSelection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(currentSelection)
     }
     
 

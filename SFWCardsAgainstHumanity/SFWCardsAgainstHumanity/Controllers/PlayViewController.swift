@@ -207,6 +207,21 @@ class PlayViewController: UIViewController {
     
 }
 
+// MARK: Segue
+
+extension PlayViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Identity.playToSelectionSegue.segueID:
+            guard let selectionViewController = segue.destination as? SelectionViewController else { return }
+            selectionViewController.currentSelection = selection
+        default:
+            return
+        }
+    }
+}
+
 
 // MARK: API Call
 extension PlayViewController {
