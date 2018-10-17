@@ -10,6 +10,11 @@ import UIKit
 
 class SelectionViewController: UIViewController {
 
+    @IBOutlet weak var modalSelectionView: UIView!
+    
+    @IBOutlet weak var blackCardLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
