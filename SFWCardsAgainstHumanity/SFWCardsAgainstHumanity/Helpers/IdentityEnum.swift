@@ -11,9 +11,11 @@ import Foundation
 enum Identity: String {
     case homeVC
     case playVC
+    case favoritesVC
     
     case homeToPlaySegue
     case playToSelectionSegue
+    case homeToFavoritesSegue
     
     var storyboardID: String {
         switch self {
@@ -21,6 +23,8 @@ enum Identity: String {
             return "HomeViewController"
         case .playVC:
             return "PlayViewController"
+        case .favoritesVC:
+            return "FavoritesViewController"
         default:
             return ""
         }
@@ -30,8 +34,10 @@ enum Identity: String {
         switch self {
         case .homeToPlaySegue:
             return "homeToPlay"
-        case.playToSelectionSegue:
+        case .playToSelectionSegue:
             return "playToSelection"
+        case .homeToFavoritesSegue:
+            return "homeToFavorites"
         default:
             return ""
         }
