@@ -9,6 +9,11 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
+    
+    // MARK: Outlets
+    
+    @IBOutlet weak var favoritesCollectionView: UICollectionView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

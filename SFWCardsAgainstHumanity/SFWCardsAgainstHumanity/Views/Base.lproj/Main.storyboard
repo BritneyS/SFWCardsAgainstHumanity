@@ -103,6 +103,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L7N-WN-vmM"/>
                     </view>
+                    <connections>
+                        <outlet property="favoritesCollectionView" destination="bL1-Pl-SM9" id="SeS-0X-ArU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVw-rM-Tue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
