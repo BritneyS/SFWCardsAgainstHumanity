@@ -205,6 +205,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-5e-Xfh">
                                         <rect key="frame" x="171" y="445" width="61" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" title="heart"/>
                                         <connections>
                                             <action selector="userTappedFavoriteButton:" destination="syK-vQ-tIn" eventType="touchUpInside" id="YKy-dl-McI"/>

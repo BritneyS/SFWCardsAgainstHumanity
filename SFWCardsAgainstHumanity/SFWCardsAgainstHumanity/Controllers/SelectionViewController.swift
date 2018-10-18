@@ -37,7 +37,7 @@ class SelectionViewController: UIViewController {
     
     func resetFavoriteButton() {
         isFavorited = false
-        favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
+        favoriteButton.setImage(UIImage(named: "favorite")!.withRenderingMode(.alwaysOriginal), for: .normal)
         favoriteButton.imageView?.contentMode = .scaleAspectFit
     }
     
@@ -85,6 +85,13 @@ class SelectionViewController: UIViewController {
     
     @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
         
+        if !isFavorited {
+            isFavorited = true
+            favoriteButton.setImage(UIImage(named: "favorite-filled")!.withRenderingMode(.alwaysOriginal), for: .normal)
+            favoriteButton.imageView?.contentMode = .scaleAspectFit
+        } else {
+            resetFavoriteButton()
+        }
         
     }
     
