@@ -29,7 +29,7 @@ class SelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        modalSelectionView.layer.cornerRadius = 10
         print("🃏In Selection View: \(currentSelection)")
         populateAllLabels()
         resetFavoriteButton()
