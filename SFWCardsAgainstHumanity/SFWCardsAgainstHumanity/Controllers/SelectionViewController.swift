@@ -24,6 +24,8 @@ class SelectionViewController: UIViewController {
     
     var currentSelection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
     var isFavorited = false
+    let favoriteImage = UIImage(named: "favorite")?.withRenderingMode(.alwaysOriginal)
+    let favoriteFilledImage = UIImage(named: "favorite-filled")?.withRenderingMode(.alwaysOriginal)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +39,19 @@ class SelectionViewController: UIViewController {
     
     func resetFavoriteButton() {
         isFavorited = false
-        favoriteButton.setImage(UIImage(named: "favorite")!.withRenderingMode(.alwaysOriginal), for: .normal)
+        favoriteButton.setImage(favoriteImage, for: .normal)
         favoriteButton.imageView?.contentMode = .scaleAspectFit
+    }
+    
+    func toggleFavoriteButton() {
+        
+        if !isFavorited {
+            isFavorited = true
+            favoriteButton.setImage(UIImage(named: "favorite-filled")!.withRenderingMode(.alwaysOriginal), for: .normal)
+            favoriteButton.imageView?.contentMode = .scaleAspectFit
+        } else {
+            resetFavoriteButton()
+        }
     }
     
     func populateBlackCardLabel(with blackCard: BlackCard) {
@@ -84,15 +97,7 @@ class SelectionViewController: UIViewController {
     }
     
     @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
-        
-        if !isFavorited {
-            isFavorited = true
-            favoriteButton.setImage(UIImage(named: "favorite-filled")!.withRenderingMode(.alwaysOriginal), for: .normal)
-            favoriteButton.imageView?.contentMode = .scaleAspectFit
-        } else {
-            resetFavoriteButton()
-        }
-        
+        toggleFavoriteButton()
     }
     
     
