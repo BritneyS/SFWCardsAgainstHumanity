@@ -17,21 +17,29 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var whiteCardOneLabel: BorderedLabel!
     @IBOutlet weak var whiteCardTwoLabel: BorderedLabel!
     @IBOutlet weak var whiteCardThreeLabel: BorderedLabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     
     // MARK: Properties
     
     var currentSelection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
-    
+    var isFavorited = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("🃏In Selection View: \(currentSelection)")
         populateAllLabels()
+        resetFavoriteButton()
     }
     
     // MARK: Methods
+    
+    func resetFavoriteButton() {
+        isFavorited = false
+        favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
+        favoriteButton.imageView?.contentMode = .scaleAspectFit
+    }
     
     func populateBlackCardLabel(with blackCard: BlackCard) {
         guard let blackCardText = blackCard.text else { return }
@@ -74,6 +82,12 @@ class SelectionViewController: UIViewController {
     @IBAction func userTappedDismissButton(_ sender: BorderedButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
+        
+        
+    }
+    
     
 
 }
