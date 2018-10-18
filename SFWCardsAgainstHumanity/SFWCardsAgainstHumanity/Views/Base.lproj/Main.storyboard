@@ -42,6 +42,9 @@
                                 <state key="normal" title="Faves">
                                     <color key="titleColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="qDe-FI-aS2" kind="show" identifier="homeToFavorites" id="I2H-Xj-NjP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,6 +60,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nol-1o-GAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2860" y="29.23538230884558"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="lGw-dJ-8od">
+            <objects>
+                <viewController storyboardIdentifier="FavoritesViewController" id="qDe-FI-aS2" customClass="FavoritesViewController" customModule="SFWCardsAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SJG-qf-nQm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="L7N-WN-vmM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VVw-rM-Tue" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2860" y="812"/>
         </scene>
         <!--Play View Controller-->
         <scene sceneID="fIh-Q4-P1z">
