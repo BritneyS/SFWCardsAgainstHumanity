@@ -17,21 +17,26 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var whiteCardOneLabel: BorderedLabel!
     @IBOutlet weak var whiteCardTwoLabel: BorderedLabel!
     @IBOutlet weak var whiteCardThreeLabel: BorderedLabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     
     // MARK: Properties
     
     var currentSelection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
-    
+    var isFavorited = false
+    let favoriteImage = UIImage(named: "favorite")?.withRenderingMode(.alwaysOriginal)
+    let favoriteFilledImage = UIImage(named: "favorite-filled")?.withRenderingMode(.alwaysOriginal)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("🃏In Selection View: \(currentSelection)")
         populateAllLabels()
+        resetFavoriteButton()
     }
     
     // MARK: Methods
+    
     
     func populateBlackCardLabel(with blackCard: BlackCard) {
         guard let blackCardText = blackCard.text else { return }
@@ -68,12 +73,34 @@ class SelectionViewController: UIViewController {
         populateBlackCardLabel(with: blackCard)
         populateWhiteCardLabels(linkedTo: blackCard)
     }
+    
+    func resetFavoriteButton() {
+        isFavorited = false
+        favoriteButton.setImage(favoriteImage, for: .normal)
+        favoriteButton.imageView?.contentMode = .scaleAspectFit
+    }
+    
+    func toggleFavoriteButton() {
+        
+        if !isFavorited {
+            isFavorited = true
+            favoriteButton.setImage(UIImage(named: "favorite-filled")!.withRenderingMode(.alwaysOriginal), for: .normal)
+            favoriteButton.imageView?.contentMode = .scaleAspectFit
+        } else {
+            resetFavoriteButton()
+        }
+    }
 
     // MARK: Actions
     
     @IBAction func userTappedDismissButton(_ sender: BorderedButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
+        toggleFavoriteButton()
+    }
+    
     
 
 }
