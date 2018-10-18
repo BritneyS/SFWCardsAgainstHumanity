@@ -154,7 +154,7 @@
         <!--Selection View Controller-->
         <scene sceneID="lPe-1o-QO0">
             <objects>
-                <viewController id="syK-vQ-tIn" customClass="SelectionViewController" customModule="SFWCardsAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="syK-vQ-tIn" customClass="SelectionViewController" customModule="SFWCardsAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pLr-6K-FPd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,6 +192,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-5e-Xfh">
+                                        <rect key="frame" x="171" y="445" width="61" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="heart"/>
+                                        <connections>
+                                            <action selector="userTappedFavoriteButton:" destination="syK-vQ-tIn" eventType="touchUpInside" id="YKy-dl-McI"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGf-DS-oci" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
                                         <rect key="frame" x="202" y="0.0" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -202,20 +211,11 @@
                                             <action selector="userTappedDismissButton:" destination="syK-vQ-tIn" eventType="touchUpInside" id="aef-ng-2oz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-5e-Xfh">
-                                        <rect key="frame" x="171" y="445" width="61" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <state key="normal" title="heart"/>
-                                        <connections>
-                                            <action selector="userTappedFavoriteButton:" destination="syK-vQ-tIn" eventType="touchUpInside" id="YKy-dl-McI"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.50139363606770837" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qj6-GQ-K9p"/>
                     </view>
                     <connections>
