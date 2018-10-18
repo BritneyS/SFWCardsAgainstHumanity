@@ -37,22 +37,6 @@ class SelectionViewController: UIViewController {
     
     // MARK: Methods
     
-    func resetFavoriteButton() {
-        isFavorited = false
-        favoriteButton.setImage(favoriteImage, for: .normal)
-        favoriteButton.imageView?.contentMode = .scaleAspectFit
-    }
-    
-    func toggleFavoriteButton() {
-        
-        if !isFavorited {
-            isFavorited = true
-            favoriteButton.setImage(UIImage(named: "favorite-filled")!.withRenderingMode(.alwaysOriginal), for: .normal)
-            favoriteButton.imageView?.contentMode = .scaleAspectFit
-        } else {
-            resetFavoriteButton()
-        }
-    }
     
     func populateBlackCardLabel(with blackCard: BlackCard) {
         guard let blackCardText = blackCard.text else { return }
@@ -88,6 +72,23 @@ class SelectionViewController: UIViewController {
         guard let blackCard = currentSelection.blackCard else { return }
         populateBlackCardLabel(with: blackCard)
         populateWhiteCardLabels(linkedTo: blackCard)
+    }
+    
+    func resetFavoriteButton() {
+        isFavorited = false
+        favoriteButton.setImage(favoriteImage, for: .normal)
+        favoriteButton.imageView?.contentMode = .scaleAspectFit
+    }
+    
+    func toggleFavoriteButton() {
+        
+        if !isFavorited {
+            isFavorited = true
+            favoriteButton.setImage(UIImage(named: "favorite-filled")!.withRenderingMode(.alwaysOriginal), for: .normal)
+            favoriteButton.imageView?.contentMode = .scaleAspectFit
+        } else {
+            resetFavoriteButton()
+        }
     }
 
     // MARK: Actions
