@@ -61,7 +61,12 @@ class PlayViewController: UIViewController {
         toggleDisabledButtonStyling(for: seeSelectionButton)
     }
     
+    func resetSelectedWhiteCards() {
+        selection.whiteCardPhrases = []
+    }
+    
     func newRound() {
+        resetSelectedWhiteCards()
         resetWhiteCardButtons()
         resetSeeSelectionButton()
         getCardData()
@@ -162,16 +167,24 @@ class PlayViewController: UIViewController {
         }
     }
     
+    func saveWhiteCardSelection(phrase: String) {
+        selection.whiteCardPhrases.append(phrase)
+    }
+    
+    func selectWhiteCardPhrase(of button: BorderedButton) {
+        guard let phrase = button.currentTitle else { return }
+        button.isSelected = true
+        saveWhiteCardSelection(phrase: phrase)
+        decrementSelectionLimit()
+        updatePickNumberLabel()
+    }
+    
     // MARK: Actions
     
     @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
         let button = sender
-        guard let phrase = button.currentTitle else { return }
         if selectionLimit > 0 {
-            button.isSelected = true
-            selection.whiteCardPhrases.append(phrase)
-            decrementSelectionLimit()
-            updatePickNumberLabel()
+            selectWhiteCardPhrase(of: button)
             if selectionLimit == 0 {
                 clearPickNumberLabel()
                 toggleEnabledButtonState(for: seeSelectionButton)
