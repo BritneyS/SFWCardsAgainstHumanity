@@ -275,61 +275,72 @@ extension PlayViewController {
         }
     }
     
-    func getCardData() {
-        
+    func getWhiteCardData(for session: URLSession) {
         guard let whiteCardUrl = self.whiteCardsURL() else { return }
-        guard let blackCardUrl = self.blackCardsURL() else { return }
-        
-        let session = URLSession.shared
         
         let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
             data, response, error in
             if let error = error {
                 print("Failure in data task! \(error)")
-            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                print("Successful response! \(data!)")
-                if let data = data {
-                    self.whiteCardsJSON = self.parseWhiteCard(data: data) ?? nil
+            } else {
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    print("Failure in response! \(response!)")
+                    return
+                }
+                 print("Successful response! \(data!)")
+                
+                guard let data = data else {
                     DispatchQueue.main.async {
                         self.isLoading = false
-                        self.setWhiteCardButtonTitles()
+                        self.showNetworkError()
                     }
+                    return
                 }
-                return
-            } else {
-                print("Failure in response! \(response!)")
-            }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                self.showNetworkError()
+                self.whiteCardsJSON = self.parseWhiteCard(data: data)
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.setWhiteCardButtonTitles()
+                }
             }
         })
         whiteCardDataTask.resume()
+    }
+    
+    func getBlackCardData(for session: URLSession) {
+        guard let blackCardUrl = self.blackCardsURL() else { return }
         
         let blackCardDataTask = session.dataTask(with: blackCardUrl, completionHandler: {
             data, response, error in
             if let error = error {
                 print("Failure in data task! \(error)")
-            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+            } else {
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    print("Failure in response! \(response!)")
+                    return
+                }
                 print("Successful response! \(data!)")
-                if let data = data {
-                    self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
+                
+                guard let data = data else {
                     DispatchQueue.main.async {
                         self.isLoading = false
-                        self.checkBlackCard()
+                        self.showNetworkError()
                     }
+                    return
                 }
-                return
-            } else {
-                print("Failure in response! \(response!)")
-            }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                self.showNetworkError()
+                self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.checkBlackCard()
+                }
             }
         })
         blackCardDataTask.resume()
-        
+    }
+    
+    func getCardData() {
+        let session = URLSession.shared
+        getWhiteCardData(for: session)
+        getBlackCardData(for: session)
     }
     
 }
