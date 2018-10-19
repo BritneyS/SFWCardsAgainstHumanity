@@ -114,7 +114,7 @@ class PlayViewController: UIViewController {
         selectionLimit = pickNumber
     }
     
-    func reduceSelectionLimit() {
+    func decrementSelectionLimit() {
         self.selectionLimit -= 1
     }
     
@@ -170,7 +170,7 @@ class PlayViewController: UIViewController {
         if selectionLimit > 0 {
             button.isSelected = true
             selection.whiteCardPhrases.append(phrase)
-            reduceSelectionLimit()
+            decrementSelectionLimit()
             updatePickNumberLabel()
             if selectionLimit == 0 {
                 clearPickNumberLabel()
