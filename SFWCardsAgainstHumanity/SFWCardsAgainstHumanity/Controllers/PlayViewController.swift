@@ -88,11 +88,7 @@ class PlayViewController: UIViewController {
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
         guard let blackCardText = blackCard.text else { return false }
-        if blackCardText.isEmpty {
-            return true
-        } else {
-            return false
-        }
+        return blackCardText.isEmpty
     }
     
     func chooseRandomBlackCard() -> BlackCard? {
