@@ -185,12 +185,9 @@ class PlayViewController: UIViewController {
         disableOtherOptions()
     }
     
-    // MARK: Actions
-    
-    @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
-        let button = sender
+    func playRound(with selectedButton: BorderedButton) {
         if selectionLimit > 0 {
-            selectWhiteCardPhrase(of: button)
+            selectWhiteCardPhrase(of: selectedButton)
             if selectionLimit == 0 {
                 endRound()
             }
@@ -198,6 +195,12 @@ class PlayViewController: UIViewController {
             print("No more choices!")
         }
         print(selection)
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
+        playRound(with: sender)
     }
     
     @IBAction func userTappedNewRoundButton(_ sender: UIButton) {
