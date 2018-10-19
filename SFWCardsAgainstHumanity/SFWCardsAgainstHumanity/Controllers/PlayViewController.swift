@@ -179,6 +179,12 @@ class PlayViewController: UIViewController {
         updatePickNumberLabel()
     }
     
+    func endRound() {
+        clearPickNumberLabel()
+        toggleEnabledButtonState(for: seeSelectionButton)
+        disableOtherOptions()
+    }
+    
     // MARK: Actions
     
     @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
@@ -186,9 +192,7 @@ class PlayViewController: UIViewController {
         if selectionLimit > 0 {
             selectWhiteCardPhrase(of: button)
             if selectionLimit == 0 {
-                clearPickNumberLabel()
-                toggleEnabledButtonState(for: seeSelectionButton)
-                disableOtherOptions()
+                endRound()
             }
         } else {
             print("No more choices!")
