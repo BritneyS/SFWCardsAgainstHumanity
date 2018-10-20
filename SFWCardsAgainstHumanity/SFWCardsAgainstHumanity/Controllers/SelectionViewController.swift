@@ -84,7 +84,7 @@ class SelectionViewController: UIViewController {
         
         if !isFavorited {
             isFavorited = true
-            favoriteButton.setImage(UIImage(named: "favorite-filled")!.withRenderingMode(.alwaysOriginal), for: .normal)
+            favoriteButton.setImage(favoriteFilledImage, for: .normal)
             favoriteButton.imageView?.contentMode = .scaleAspectFit
         } else {
             resetFavoriteButton()
