@@ -62,7 +62,7 @@ class SelectionViewController: UIViewController {
 
         for (index, label) in labelArray.enumerated() {
             guard let label = label else { return }
-            if label.isHidden == false {
+            if !label.isHidden {
                 labelArray[index]?.text = currentSelection.whiteCardPhrases[index]
             }
         }
