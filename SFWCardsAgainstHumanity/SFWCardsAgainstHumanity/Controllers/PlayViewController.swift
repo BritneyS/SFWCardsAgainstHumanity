@@ -258,7 +258,7 @@ extension PlayViewController {
             let result = try decoder.decode(WhiteCards.self, from: data)
             return result
         } catch {
-            print("JSON Error \(error)")
+            print("JSON Error for white cards \(error)")
             return nil
         }
     }
@@ -281,13 +281,13 @@ extension PlayViewController {
         let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
             data, response, error in
             if let error = error {
-                print("Failure in data task! \(error)")
+                print("Failure in data task for white cards! \(error)")
             } else {
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    print("Failure in response! \(response!)")
+                    print("Failure in response for white cards! \(response!)")
                     return
                 }
-                 print("Successful response! \(data!)")
+                 print("Successful response for white cards! \(data!)")
                 
                 guard let data = data else {
                     DispatchQueue.main.async {
@@ -312,13 +312,13 @@ extension PlayViewController {
         let blackCardDataTask = session.dataTask(with: blackCardUrl, completionHandler: {
             data, response, error in
             if let error = error {
-                print("Failure in data task! \(error)")
+                print("Failure in data task for black cards! \(error)")
             } else {
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    print("Failure in response! \(response!)")
+                    print("Failure in response for black cards! \(response!)")
                     return
                 }
-                print("Successful response! \(data!)")
+                print("Successful response for black cards! \(data!)")
                 
                 guard let data = data else {
                     DispatchQueue.main.async {
