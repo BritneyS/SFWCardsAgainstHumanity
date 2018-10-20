@@ -61,7 +61,12 @@ class PlayViewController: UIViewController {
         toggleDisabledButtonStyling(for: seeSelectionButton)
     }
     
+    func resetSelectedWhiteCards() {
+        selection.whiteCardPhrases = []
+    }
+    
     func newRound() {
+        resetSelectedWhiteCards()
         resetWhiteCardButtons()
         resetSeeSelectionButton()
         getCardData()
@@ -88,11 +93,7 @@ class PlayViewController: UIViewController {
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
         guard let blackCardText = blackCard.text else { return false }
-        if blackCardText.isEmpty {
-            return true
-        } else {
-            return false
-        }
+        return blackCardText.isEmpty
     }
     
     func chooseRandomBlackCard() -> BlackCard? {
@@ -118,7 +119,7 @@ class PlayViewController: UIViewController {
         selectionLimit = pickNumber
     }
     
-    func reduceSelectionLimit() {
+    func decrementSelectionLimit() {
         self.selectionLimit -= 1
     }
     
@@ -166,25 +167,40 @@ class PlayViewController: UIViewController {
         }
     }
     
-    // MARK: Actions
+    func saveWhiteCardSelection(phrase: String) {
+        selection.whiteCardPhrases.append(phrase)
+    }
     
-    @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
-        let button = sender
+    func selectWhiteCardPhrase(of button: BorderedButton) {
         guard let phrase = button.currentTitle else { return }
+        button.isSelected = true
+        saveWhiteCardSelection(phrase: phrase)
+        decrementSelectionLimit()
+        updatePickNumberLabel()
+    }
+    
+    func endRound() {
+        clearPickNumberLabel()
+        toggleEnabledButtonState(for: seeSelectionButton)
+        disableOtherOptions()
+    }
+    
+    func playRound(with selectedButton: BorderedButton) {
         if selectionLimit > 0 {
-            button.isSelected = true
-            selection.whiteCardPhrases.append(phrase)
-            reduceSelectionLimit()
-            updatePickNumberLabel()
+            selectWhiteCardPhrase(of: selectedButton)
             if selectionLimit == 0 {
-                clearPickNumberLabel()
-                toggleEnabledButtonState(for: seeSelectionButton)
-                disableOtherOptions()
+                endRound()
             }
         } else {
             print("No more choices!")
         }
         print(selection)
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func userTappedPhraseButton(_ sender: BorderedButton) {
+        playRound(with: sender)
     }
     
     @IBAction func userTappedNewRoundButton(_ sender: UIButton) {
@@ -242,7 +258,7 @@ extension PlayViewController {
             let result = try decoder.decode(WhiteCards.self, from: data)
             return result
         } catch {
-            print("JSON Error \(error)")
+            print("JSON Error for white cards \(error)")
             return nil
         }
     }
@@ -259,61 +275,72 @@ extension PlayViewController {
         }
     }
     
-    func getCardData() {
-        
+    func getWhiteCardData(for session: URLSession) {
         guard let whiteCardUrl = self.whiteCardsURL() else { return }
-        guard let blackCardUrl = self.blackCardsURL() else { return }
-        
-        let session = URLSession.shared
         
         let whiteCardDataTask = session.dataTask(with: whiteCardUrl, completionHandler: {
             data, response, error in
             if let error = error {
-                print("Failure in data task! \(error)")
-            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                print("Successful response! \(data!)")
-                if let data = data {
-                    self.whiteCardsJSON = self.parseWhiteCard(data: data) ?? nil
+                print("Failure in data task for white cards! \(error)")
+            } else {
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    print("Failure in response for white cards! \(response!)")
+                    return
+                }
+                 print("Successful response for white cards! \(data!)")
+                
+                guard let data = data else {
                     DispatchQueue.main.async {
                         self.isLoading = false
-                        self.setWhiteCardButtonTitles()
+                        self.showNetworkError()
                     }
+                    return
                 }
-                return
-            } else {
-                print("Failure in response! \(response!)")
-            }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                self.showNetworkError()
+                self.whiteCardsJSON = self.parseWhiteCard(data: data)
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.setWhiteCardButtonTitles()
+                }
             }
         })
         whiteCardDataTask.resume()
+    }
+    
+    func getBlackCardData(for session: URLSession) {
+        guard let blackCardUrl = self.blackCardsURL() else { return }
         
         let blackCardDataTask = session.dataTask(with: blackCardUrl, completionHandler: {
             data, response, error in
             if let error = error {
-                print("Failure in data task! \(error)")
-            } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                print("Successful response! \(data!)")
-                if let data = data {
-                    self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
+                print("Failure in data task for black cards! \(error)")
+            } else {
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    print("Failure in response for black cards! \(response!)")
+                    return
+                }
+                print("Successful response for black cards! \(data!)")
+                
+                guard let data = data else {
                     DispatchQueue.main.async {
                         self.isLoading = false
-                        self.checkBlackCard()
+                        self.showNetworkError()
                     }
+                    return
                 }
-                return
-            } else {
-                print("Failure in response! \(response!)")
-            }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                self.showNetworkError()
+                self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.checkBlackCard()
+                }
             }
         })
         blackCardDataTask.resume()
-        
+    }
+    
+    func getCardData() {
+        let session = URLSession.shared
+        getWhiteCardData(for: session)
+        getBlackCardData(for: session)
     }
     
 }
