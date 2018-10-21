@@ -10,6 +10,8 @@ import UIKit
 
 class FavoritesCollectionViewCell: UICollectionViewCell {
     
+    // MARK: Outlets
+    
     @IBOutlet weak var blackCardLabel: UILabel!
     
     
