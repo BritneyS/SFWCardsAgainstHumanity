@@ -23,6 +23,7 @@
 		06B440792177AF8D0062BEDF /* BorderedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B440782177AF8D0062BEDF /* BorderedLabel.swift */; };
 		06B4407B2177CBC40062BEDF /* HTMLDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4407A2177CBC40062BEDF /* HTMLDecode.swift */; };
 		06B4407F217920EC0062BEDF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4407E217920EC0062BEDF /* FavoritesViewController.swift */; };
+		06B44081217D35ED0062BEDF /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44080217D35ED0062BEDF /* FavoritesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		06B440782177AF8D0062BEDF /* BorderedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedLabel.swift; sourceTree = "<group>"; };
 		06B4407A2177CBC40062BEDF /* HTMLDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLDecode.swift; sourceTree = "<group>"; };
 		06B4407E217920EC0062BEDF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		06B44080217D35ED0062BEDF /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				06B44050216BA5F90062BEDF /* Main.storyboard */,
 				06B4406E216E377D0062BEDF /* BorderedButton.swift */,
 				06B440782177AF8D0062BEDF /* BorderedLabel.swift */,
+				06B44080217D35ED0062BEDF /* FavoritesCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B44081217D35ED0062BEDF /* FavoritesCollectionViewCell.swift in Sources */,
 				06B4407F217920EC0062BEDF /* FavoritesViewController.swift in Sources */,
 				06B44073216F88090062BEDF /* BlackCard.swift in Sources */,
 				06B44067216BE6250062BEDF /* PlayViewController.swift in Sources */,
