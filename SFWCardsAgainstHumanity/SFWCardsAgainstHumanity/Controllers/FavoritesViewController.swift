@@ -16,7 +16,7 @@ class FavoritesViewController: UIViewController {
     
     // MARK: Properties
     
-    var favoriteSelection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
+    var favoriteSelection: (blackCard: BlackCard?, whiteCardPhrases: [String?], isFavorited: Bool) = (blackCard: nil, whiteCardPhrases: [], isFavorited: false)
 
     override func viewDidLoad() {
         super.viewDidLoad()
