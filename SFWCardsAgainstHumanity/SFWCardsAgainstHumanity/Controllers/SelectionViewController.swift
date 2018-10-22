@@ -92,6 +92,15 @@ class SelectionViewController: UIViewController {
             resetFavoriteButton()
         }
     }
+    
+    func addCurrentSelectionToFavorites() {
+        if isFavorited {
+            guard let blackCard = currentSelection.blackCard else { return }
+            let whiteCardPhrases = currentSelection.whiteCardPhrases
+            let currentFavoriteSelection = FavoriteSelection(blackCard: blackCard, whiteCardPhrases: whiteCardPhrases, isFavorited: isFavorited)
+            FavoritesManager.shared.addFavorite(favorite: currentFavoriteSelection)
+        }
+    }
 
     // MARK: Actions
     
@@ -101,10 +110,7 @@ class SelectionViewController: UIViewController {
     
     @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
         toggleFavoriteButton()
-        if isFavorited {
-            let currentFavoriteSelection = FavoriteSelection(blackCard: currentSelection.blackCard!, whiteCardPhrases: currentSelection.whiteCardPhrases, isFavorited: isFavorited)
-            FavoritesManager.shared.addFavorite(favorite: currentFavoriteSelection)
-        }
+        addCurrentSelectionToFavorites()
     }
 }
 
