@@ -8,9 +8,6 @@
 
 import UIKit
 
-//protocol FavoritesViewControllerDelegate: class {
-//    func addFavorite(controller: FavoritesViewController, didFinishAdding item: FavoriteSelection)
-//}
 
 class FavoritesViewController: UIViewController {
     
@@ -25,9 +22,6 @@ class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("🃏Black Card: \(favoriteSelection!.blackCard!)")
-//        print("🃏White Cards: \(favoriteSelection!.whiteCardPhrases)")
-//        print("🃏isFavorited: \(favoriteSelection!.isFavorited)")
     }
     
     
@@ -58,14 +52,3 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     
 }
 
-extension FavoritesViewController: SelectionViewControllerDelegate {
-    func addFavorite(controller: SelectionViewController, didSave item: FavoriteSelection) {
-        print("👍delegate method called")
-        favoriteSelection = item
-        print("🃏Black Card: \(favoriteSelection!.blackCard!)")
-        print("🃏White Cards: \(favoriteSelection!.whiteCardPhrases)")
-        print("🃏isFavorited: \(favoriteSelection!.isFavorited)")
-    }
-    
-    
-}

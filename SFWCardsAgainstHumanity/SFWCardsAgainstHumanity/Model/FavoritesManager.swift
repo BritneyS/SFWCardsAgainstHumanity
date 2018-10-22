@@ -19,6 +19,9 @@ final class FavoritesManager {
     
     func addFavorite(favorite: FavoriteSelection) {
         self.favoritesList.append(favorite)
+        for favorite in favoritesList{
+            print("🃏FavoritesList: \(favorite.blackCard!)")
+        }
     }
     
 }
