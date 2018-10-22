@@ -14,5 +14,8 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var blackCardLabel: UILabel!
     
+    func displayBlackCardLabel(blackCardText: String) {
+        blackCardLabel.text = blackCardText
+    }
     
 }
