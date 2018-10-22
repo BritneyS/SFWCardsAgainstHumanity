@@ -34,7 +34,13 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identity.favoritesCell.cellID, for: indexPath) as! FavoritesCollectionViewCell
         let favoriteSelection = favorites.favoritesList[indexPath.row]
-        cell.displayBlackCardLabel(blackCardText: (favoriteSelection.blackCard?.text)!)
+        
+        guard
+            let blackCard = favoriteSelection.blackCard,
+            let blackCardText = blackCard.text
+        else { return cell }
+        
+        cell.displayBlackCardLabel(blackCardText: blackCardText)
         return cell
     }
     
