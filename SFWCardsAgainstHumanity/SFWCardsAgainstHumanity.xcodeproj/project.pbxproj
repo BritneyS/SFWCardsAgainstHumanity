@@ -24,6 +24,8 @@
 		06B4407B2177CBC40062BEDF /* HTMLDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4407A2177CBC40062BEDF /* HTMLDecode.swift */; };
 		06B4407F217920EC0062BEDF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4407E217920EC0062BEDF /* FavoritesViewController.swift */; };
 		06B44081217D35ED0062BEDF /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44080217D35ED0062BEDF /* FavoritesCollectionViewCell.swift */; };
+		06B44083217E09680062BEDF /* FavoriteSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44082217E09680062BEDF /* FavoriteSelection.swift */; };
+		06B44085217E418F0062BEDF /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B44084217E418F0062BEDF /* FavoritesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		06B4407A2177CBC40062BEDF /* HTMLDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLDecode.swift; sourceTree = "<group>"; };
 		06B4407E217920EC0062BEDF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		06B44080217D35ED0062BEDF /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		06B44082217E09680062BEDF /* FavoriteSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSelection.swift; sourceTree = "<group>"; };
+		06B44084217E418F0062BEDF /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 				06B4406C216CE5AE0062BEDF /* DeckDatabase.swift */,
 				06B44070216E8A1A0062BEDF /* WhiteCard.swift */,
 				06B44072216F88090062BEDF /* BlackCard.swift */,
+				06B44082217E09680062BEDF /* FavoriteSelection.swift */,
+				06B44084217E418F0062BEDF /* FavoritesManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				06B44073216F88090062BEDF /* BlackCard.swift in Sources */,
 				06B44067216BE6250062BEDF /* PlayViewController.swift in Sources */,
 				06B4406D216CE5AE0062BEDF /* DeckDatabase.swift in Sources */,
+				06B44083217E09680062BEDF /* FavoriteSelection.swift in Sources */,
 				06B4404D216BA5F90062BEDF /* AppDelegate.swift in Sources */,
 				06B4406B216CE4230062BEDF /* Deck.swift in Sources */,
 				06B440772177859E0062BEDF /* SelectionViewController.swift in Sources */,
@@ -215,6 +222,7 @@
 				06B44071216E8A1A0062BEDF /* WhiteCard.swift in Sources */,
 				06B4407B2177CBC40062BEDF /* HTMLDecode.swift in Sources */,
 				06B44061216BCAF00062BEDF /* HomeViewController.swift in Sources */,
+				06B44085217E418F0062BEDF /* FavoritesManager.swift in Sources */,
 				06B440792177AF8D0062BEDF /* BorderedLabel.swift in Sources */,
 				06B4406F216E377D0062BEDF /* BorderedButton.swift in Sources */,
 			);

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SelectionViewControllerDelegate: class {
+    func addFavorite(controller: SelectionViewController, didSave item: FavoriteSelection)
+}
+
 class SelectionViewController: UIViewController {
     
     // MARK: Outlets
@@ -26,6 +30,8 @@ class SelectionViewController: UIViewController {
     var isFavorited = false
     let favoriteImage = UIImage(named: "favorite")?.withRenderingMode(.alwaysOriginal)
     let favoriteFilledImage = UIImage(named: "favorite-filled")?.withRenderingMode(.alwaysOriginal)
+    var currentFavoriteSelection: FavoriteSelection? = nil
+    weak var delegate: SelectionViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,14 +105,27 @@ class SelectionViewController: UIViewController {
     
     @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
         toggleFavoriteButton()
-        if isFavorited {
-            let favoritesViewController = FavoritesViewController()
-            favoritesViewController.favoriteSelection.blackCard = currentSelection.blackCard
-            favoritesViewController.favoriteSelection.whiteCardPhrases = currentSelection.whiteCardPhrases
-            favoritesViewController.favoriteSelection.isFavorited = isFavorited
-        }
+        //if isFavorited {
+            
+//            let favoritesViewController = FavoritesViewController()
+ //           guard let favoriteSelection = favoritesViewController.favoriteSelection else { return }
+//            favoriteSelection.blackCard = currentSelection.blackCard
+//            favoriteSelection.whiteCardPhrases = currentSelection.whiteCardPhrases
+//            favoriteSelection.isFavorited = isFavorited
+            let currentFavoriteSelection = FavoriteSelection(blackCard: currentSelection.blackCard!, whiteCardPhrases: currentSelection.whiteCardPhrases, isFavorited: isFavorited)
+//           favoritesViewController.favoriteSelection = currentFavoriteSelection
+//            favoritesViewController.delegate = self
+            delegate?.addFavorite(controller: self, didSave: currentFavoriteSelection)
+            
+            
+        //}
     }
-    
-    
-
 }
+
+//extension SelectionViewController: FavoritesViewControllerDelegate {
+//    func addFavorite(controller: FavoritesViewController, didFinishAdding item: FavoriteSelection) {
+//        controller.favoriteSelection = item
+//    }
+//
+//
+//}

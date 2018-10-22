@@ -8,6 +8,10 @@
 
 import UIKit
 
+//protocol FavoritesViewControllerDelegate: class {
+//    func addFavorite(controller: FavoritesViewController, didFinishAdding item: FavoriteSelection)
+//}
+
 class FavoritesViewController: UIViewController {
     
     // MARK: Outlets
@@ -16,14 +20,14 @@ class FavoritesViewController: UIViewController {
     
     // MARK: Properties
     
-    var favoriteSelection: (blackCard: BlackCard?, whiteCardPhrases: [String?], isFavorited: Bool) = (blackCard: nil, whiteCardPhrases: [], isFavorited: false)
+    var favoriteSelection: FavoriteSelection?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("🃏Black Card: \(favoriteSelection.blackCard!)")
-        print("🃏White Cards: \(favoriteSelection.whiteCardPhrases)")
-        print("🃏isFavorited: \(favoriteSelection.isFavorited)")
-
+//        print("🃏Black Card: \(favoriteSelection!.blackCard!)")
+//        print("🃏White Cards: \(favoriteSelection!.whiteCardPhrases)")
+//        print("🃏isFavorited: \(favoriteSelection!.isFavorited)")
     }
     
     
@@ -49,6 +53,18 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // code
         return UICollectionViewCell()
+    }
+    
+    
+}
+
+extension FavoritesViewController: SelectionViewControllerDelegate {
+    func addFavorite(controller: SelectionViewController, didSave item: FavoriteSelection) {
+        print("👍delegate method called")
+        favoriteSelection = item
+        print("🃏Black Card: \(favoriteSelection!.blackCard!)")
+        print("🃏White Cards: \(favoriteSelection!.whiteCardPhrases)")
+        print("🃏isFavorited: \(favoriteSelection!.isFavorited)")
     }
     
     
