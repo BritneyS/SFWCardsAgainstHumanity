@@ -20,9 +20,12 @@ class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("🃏Black Card: \(favoriteSelection.blackCard!)")
+        print("🃏White Cards: \(favoriteSelection.whiteCardPhrases)")
+        print("🃏isFavorited: \(favoriteSelection.isFavorited)")
 
-        // Do any additional setup after loading the view.
     }
+    
     
 
     /*

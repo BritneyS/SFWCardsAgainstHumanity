@@ -99,6 +99,12 @@ class SelectionViewController: UIViewController {
     
     @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
         toggleFavoriteButton()
+        if isFavorited {
+            let favoritesViewController = FavoritesViewController()
+            favoritesViewController.favoriteSelection.blackCard = currentSelection.blackCard
+            favoritesViewController.favoriteSelection.whiteCardPhrases = currentSelection.whiteCardPhrases
+            favoritesViewController.favoriteSelection.isFavorited = isFavorited
+        }
     }
     
     
