@@ -39,8 +39,8 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
             let blackCard = favoriteSelection.blackCard,
             let blackCardText = blackCard.text
         else { return cell }
-        
-        cell.displayBlackCardLabel(blackCardText: blackCardText)
+        let decodedBlackCardText = HTMLDecode.decodeHTMLString(for: blackCardText).string
+        cell.displayBlackCardLabel(blackCardText: decodedBlackCardText)
         return cell
     }
     
