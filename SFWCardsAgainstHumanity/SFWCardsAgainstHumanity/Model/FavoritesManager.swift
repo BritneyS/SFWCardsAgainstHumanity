@@ -7,12 +7,11 @@
 //
 
 import Foundation
-// Singleton
+/// Singleton
 final class FavoritesManager {
     
     static let shared = FavoritesManager()
     
-    //var favoriteSelection: FavoriteSelection? = nil
     var favoritesList: [FavoriteSelection] = []
     
     private init() {}
