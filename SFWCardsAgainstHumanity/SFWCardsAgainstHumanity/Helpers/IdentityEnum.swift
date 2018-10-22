@@ -17,6 +17,8 @@ enum Identity: String {
     case playToSelectionSegue
     case homeToFavoritesSegue
     
+    case favoritesCell
+    
     var storyboardID: String {
         switch self {
         case .homeVC:
@@ -38,6 +40,15 @@ enum Identity: String {
             return "playToSelection"
         case .homeToFavoritesSegue:
             return "homeToFavorites"
+        default:
+            return ""
+        }
+    }
+    
+    var cellID: String {
+        switch self {
+        case .favoritesCell:
+            return "favoritesCell"
         default:
             return ""
         }

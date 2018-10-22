@@ -8,42 +8,42 @@
 
 import UIKit
 
+
 class FavoritesViewController: UIViewController {
     
     // MARK: Outlets
     
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
     
+    // MARK: Properties
+    
+    var favoriteSelection: FavoriteSelection?
+    let favorites = FavoritesManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // code
-        return 0
+        return favorites.favoritesList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // code
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identity.favoritesCell.cellID, for: indexPath) as! FavoritesCollectionViewCell
+        let favoriteSelection = favorites.favoritesList[indexPath.row]
+        
+        guard
+            let blackCard = favoriteSelection.blackCard,
+            let blackCardText = blackCard.text
+        else { return cell }
+        let decodedBlackCardText = HTMLDecode.decodeHTMLString(for: blackCardText).string
+        cell.displayBlackCardLabel(blackCardText: decodedBlackCardText)
+        return cell
     }
     
     
 }
+
