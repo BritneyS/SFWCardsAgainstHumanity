@@ -24,8 +24,13 @@ final class FavoritesManager {
     }
     
     func deleteFavorite(favorite: FavoriteSelection) {
-        guard let index = favoritesList.index(of: favorite) else { return }
+        print("🤷‍♀️ Before deletion...")
+        guard let index = favoritesList.firstIndex(where: { $0.blackCard == favorite.blackCard && $0.whiteCardPhrases == favorite.whiteCardPhrases }) else {
+            print("Start index is \(favoritesList.firstIndex(where: { $0.blackCard == favorite.blackCard && $0.whiteCardPhrases == favorite.whiteCardPhrases })!)")
+            print("🤭 No index!!")
+            return
+        }
+        print("🚨Object to be removed: \(favoritesList[index].blackCard!)")
         self.favoritesList.remove(at: index)
     }
-    
 }

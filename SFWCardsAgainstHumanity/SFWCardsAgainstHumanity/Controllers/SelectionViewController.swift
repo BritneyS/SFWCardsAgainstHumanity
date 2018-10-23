@@ -94,21 +94,36 @@ class SelectionViewController: UIViewController {
         if !isFavorited {
             isFavorited = true
             fillFavoriteButton()
+            manageFavorites()
         } else {
+            isFavorited = false
             drawEmptyFavoriteButton()
+            manageFavorites()
         }
     }
     
-    func deleteCurrentSelectionToFavorites() {
-        
+    func deleteCurrentSelectionFromFavorites(for favorite: FavoriteSelection) {
+        FavoritesManager.shared.deleteFavorite(favorite: favorite)
     }
     
-    func addCurrentSelectionToFavorites() {
+    func addCurrentSelectionToFavorites(for favorite: FavoriteSelection) {
+        FavoritesManager.shared.addFavorite(favorite: favorite)
+    }
+    
+    func manageFavorites() {
+        guard let blackCard = currentSelection.blackCard else { return }
+        let whiteCardPhrases = currentSelection.whiteCardPhrases
+        let currentFavoriteSelection = FavoriteSelection(blackCard: blackCard, whiteCardPhrases: whiteCardPhrases, isFavorited: isFavorited)
         if isFavorited {
-            guard let blackCard = currentSelection.blackCard else { return }
-            let whiteCardPhrases = currentSelection.whiteCardPhrases
-            let currentFavoriteSelection = FavoriteSelection(blackCard: blackCard, whiteCardPhrases: whiteCardPhrases, isFavorited: isFavorited)
-            FavoritesManager.shared.addFavorite(favorite: currentFavoriteSelection)
+            print("favorite added")
+            addCurrentSelectionToFavorites(for: currentFavoriteSelection)
+        } else {
+            if FavoritesManager.shared.favoritesList.contains(where: { $0.blackCard == currentFavoriteSelection.blackCard }) && FavoritesManager.shared.favoritesList.contains(where: { $0.whiteCardPhrases == currentFavoriteSelection.whiteCardPhrases }) {
+                // found
+                print("favorite deleted")
+                deleteCurrentSelectionFromFavorites(for: currentFavoriteSelection)
+                print("💖New array: \(FavoritesManager.shared.favoritesList)")
+            }
         }
     }
 
@@ -120,7 +135,6 @@ class SelectionViewController: UIViewController {
     
     @IBAction func userTappedFavoriteButton(_ sender: UIButton) {
         toggleFavoriteButton()
-        addCurrentSelectionToFavorites()
     }
 }
 

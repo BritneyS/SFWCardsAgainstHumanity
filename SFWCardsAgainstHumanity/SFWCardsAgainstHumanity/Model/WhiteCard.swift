@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct WhiteCards: Decodable {
+struct WhiteCards: Decodable, Equatable {
     
     var phrases: [String?] = []
     
