@@ -23,8 +23,8 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadFavoritesList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
-        if dataFileExists() {
-            loadFavorites()
+        if favorites.dataFileExists() {
+            favorites.loadFavorites()
         }
     }
     
@@ -70,48 +70,5 @@ extension FavoritesViewController {
         default:
             return
         }
-    }
-}
-
-// MARK: Data Persistence
-extension FavoritesViewController {
-    
-    // accessing Documents folder of app
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    // adding new file to directory
-    func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Favorites.plist")
-    }
-    
-    func saveFavorites() {
-        let encoder = PropertyListEncoder()
-        do {
-            let data = try encoder.encode(favorites.favoritesList)
-            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-        } catch {
-            print("Error encoding item array")
-        }
-    }
-    
-    func loadFavorites() {
-        let path = dataFilePath()
-        if let data = try? Data(contentsOf: path) {
-            let decoder = PropertyListDecoder()
-            do {
-                favorites.favoritesList = try decoder.decode([FavoriteSelection].self, from: data)
-            } catch {
-                print("Error decoding item array!")
-            }
-        }
-    }
-    
-    func dataFileExists() -> Bool {
-        let fileManager = FileManager()
-        let filePath = dataFilePath().path
-        
-        return fileManager.fileExists(atPath: filePath)
     }
 }
