@@ -23,6 +23,9 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadFavoritesList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+        if favorites.dataFileExists() {
+            favorites.loadFavorites()
+        }
     }
     
     // MARK: Methods
@@ -69,4 +72,3 @@ extension FavoritesViewController {
         }
     }
 }
-

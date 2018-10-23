@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BlackCard: Decodable, Equatable {
+struct BlackCard: Codable, Equatable {
     let text: String?
     let pick: Int?
 }

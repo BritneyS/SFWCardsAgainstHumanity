@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavoriteSelection: Equatable {
+class FavoriteSelection: Equatable, Codable {
     
     var blackCard: BlackCard?
     var whiteCardPhrases: [String?]
