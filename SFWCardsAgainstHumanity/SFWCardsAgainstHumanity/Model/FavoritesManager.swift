@@ -25,6 +25,7 @@ final class FavoritesManager {
     
     func deleteFavorite(favorite: FavoriteSelection) {
         guard let index = favoritesList.index(of: favorite) else { return }
+        self.favoritesList.remove(at: index)
     }
     
 }
