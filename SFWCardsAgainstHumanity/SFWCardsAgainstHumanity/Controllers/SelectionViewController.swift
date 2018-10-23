@@ -34,7 +34,7 @@ class SelectionViewController: UIViewController {
         modalSelectionView.layer.cornerRadius = 10
         print("🃏In Selection View: \(currentSelection)")
         populateAllLabels()
-        resetFavoriteButton()
+        drawEmptyFavoriteButton()
     }
     
     // MARK: Methods
@@ -76,20 +76,26 @@ class SelectionViewController: UIViewController {
         populateWhiteCardLabels(linkedTo: blackCard)
     }
     
-    func resetFavoriteButton() {
-        isFavorited = false
+    func fillFavoriteButton() {
+        favoriteButton.setImage(favoriteFilledImage, for: .normal)
+        favoriteButton.imageView?.contentMode = .scaleAspectFit
+    }
+    
+    func drawEmptyFavoriteButton() {
         favoriteButton.setImage(favoriteImage, for: .normal)
         favoriteButton.imageView?.contentMode = .scaleAspectFit
+        if isFavorited {
+            fillFavoriteButton()
+        }
     }
     
     func toggleFavoriteButton() {
         
         if !isFavorited {
             isFavorited = true
-            favoriteButton.setImage(favoriteFilledImage, for: .normal)
-            favoriteButton.imageView?.contentMode = .scaleAspectFit
+            fillFavoriteButton()
         } else {
-            resetFavoriteButton()
+            drawEmptyFavoriteButton()
         }
     }
     

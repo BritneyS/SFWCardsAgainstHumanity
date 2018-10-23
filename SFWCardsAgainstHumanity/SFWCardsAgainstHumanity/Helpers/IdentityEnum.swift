@@ -16,6 +16,7 @@ enum Identity: String {
     case homeToPlaySegue
     case playToSelectionSegue
     case homeToFavoritesSegue
+    case favoritesToSelectionSegue
     
     case favoritesCell
     
@@ -40,6 +41,8 @@ enum Identity: String {
             return "playToSelection"
         case .homeToFavoritesSegue:
             return "homeToFavorites"
+        case .favoritesToSelectionSegue:
+            return "favoritesToSelection"
         default:
             return ""
         }
