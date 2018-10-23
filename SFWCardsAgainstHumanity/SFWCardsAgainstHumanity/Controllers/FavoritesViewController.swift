@@ -43,7 +43,16 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.displayBlackCardLabel(blackCardText: decodedBlackCardText)
         return cell
     }
+}
+// MARK: Segue
+extension FavoritesViewController {
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Identity.favoritesToSelectionSegue.segueID:
+            guard let selectionViewController = segue.destination as? SelectionViewController else { return }
+            
+        }
+    }
 }
 
