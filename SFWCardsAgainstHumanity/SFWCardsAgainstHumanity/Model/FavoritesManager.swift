@@ -18,9 +18,13 @@ final class FavoritesManager {
     
     func addFavorite(favorite: FavoriteSelection) {
         self.favoritesList.append(favorite)
-        for favorite in favoritesList{
+        for favorite in favoritesList {
             print("🃏FavoritesList: \(favorite.blackCard!)")
         }
+    }
+    
+    func deleteFavorite(favorite: FavoriteSelection) {
+        guard let index = favoritesList.index(of: favorite) else { return }
     }
     
 }

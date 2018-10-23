@@ -99,6 +99,10 @@ class SelectionViewController: UIViewController {
         }
     }
     
+    func deleteCurrentSelectionToFavorites() {
+        
+    }
+    
     func addCurrentSelectionToFavorites() {
         if isFavorited {
             guard let blackCard = currentSelection.blackCard else { return }
