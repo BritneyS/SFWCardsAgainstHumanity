@@ -104,6 +104,7 @@ class SelectionViewController: UIViewController {
     
     func deleteCurrentSelectionFromFavorites(for favorite: FavoriteSelection) {
         FavoritesManager.shared.deleteFavorite(favorite: favorite)
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
     }
     
     func addCurrentSelectionToFavorites(for favorite: FavoriteSelection) {
