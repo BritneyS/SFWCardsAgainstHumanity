@@ -22,8 +22,15 @@ class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadFavoritesList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
-
+    
+    // MARK: Methods
+    
+    @objc
+    func reloadFavoritesList(notification: NSNotification) {
+        favoritesCollectionView.reloadData()
+    }
 }
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {

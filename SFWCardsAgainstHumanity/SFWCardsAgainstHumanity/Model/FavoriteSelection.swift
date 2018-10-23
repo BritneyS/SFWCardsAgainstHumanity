@@ -8,10 +8,15 @@
 
 import Foundation
 
-class FavoriteSelection {
+class FavoriteSelection: Equatable {
+    
     var blackCard: BlackCard?
     var whiteCardPhrases: [String?]
     var isFavorited: Bool
+    
+    static func == (lhs: FavoriteSelection, rhs: FavoriteSelection) -> Bool {
+        return (lhs.blackCard == rhs.blackCard) && (lhs.whiteCardPhrases == rhs.whiteCardPhrases) && (lhs.isFavorited == rhs.isFavorited)
+    }
     
     init(blackCard: BlackCard?, whiteCardPhrases: [String?], isFavorited: Bool) {
         self.blackCard = blackCard
