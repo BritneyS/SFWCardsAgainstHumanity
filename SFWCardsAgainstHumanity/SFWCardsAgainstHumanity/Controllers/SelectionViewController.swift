@@ -109,6 +109,7 @@ class SelectionViewController: UIViewController {
     
     func addCurrentSelectionToFavorites(for favorite: FavoriteSelection) {
         FavoritesManager.shared.addFavorite(favorite: favorite)
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
     }
     
     func manageFavorites() {
