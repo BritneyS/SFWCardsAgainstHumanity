@@ -133,19 +133,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4j-TX-dzL" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="105" y="358" width="165" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4j-TX-dzL" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                <rect key="frame" x="80" y="318.5" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="whiteCard phrase 1"/>
+                                <state key="normal" title="whiteCard phrase 1">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="userTappedPhraseButton:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="6fG-wz-3Rv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-dk-agm" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="105" y="536" width="165" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-dk-agm" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                <rect key="frame" x="80" y="418.5" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="whiteCard phrase 3"/>
@@ -153,9 +153,8 @@
                                     <action selector="userTappedPhraseButton:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="qcV-yf-dzq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-Lo-PT1" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="105" y="446" width="165" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-Lo-PT1" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                <rect key="frame" x="80" y="368.5" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="whiteCard phrase 2"/>
@@ -202,6 +201,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="0lE-Lo-PT1" secondAttribute="trailing" constant="80" id="QOU-zY-4jX"/>
+                            <constraint firstItem="0lE-Lo-PT1" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="80" id="YVs-b8-eg7"/>
+                            <constraint firstItem="RXZ-dk-agm" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="80" id="Zsq-TX-oiM"/>
+                            <constraint firstItem="0lE-Lo-PT1" firstAttribute="top" secondItem="j4j-TX-dzL" secondAttribute="bottom" constant="20" id="ccj-AI-cqX"/>
+                            <constraint firstItem="j4j-TX-dzL" firstAttribute="centerY" secondItem="Hjq-i9-cpf" secondAttribute="centerY" id="dZc-5B-Ity"/>
+                            <constraint firstItem="RXZ-dk-agm" firstAttribute="top" secondItem="0lE-Lo-PT1" secondAttribute="bottom" constant="20" id="e3Z-vk-zaO"/>
+                            <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="RXZ-dk-agm" secondAttribute="trailing" constant="80" id="j5X-SQ-gWZ"/>
+                            <constraint firstItem="j4j-TX-dzL" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="80" id="kKa-1l-DY9"/>
+                            <constraint firstItem="j4j-TX-dzL" firstAttribute="centerX" secondItem="Hjq-i9-cpf" secondAttribute="centerX" id="oV0-eJ-Stf"/>
+                            <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="j4j-TX-dzL" secondAttribute="trailing" constant="80" id="uS7-oy-pSw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JDT-Kn-ml7"/>
                     </view>
                     <navigationItem key="navigationItem" id="TGn-du-VPK"/>
@@ -318,6 +329,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Uax-ch-NMh"/>
+        <segue reference="AfY-04-MiS"/>
     </inferredMetricsTieBreakers>
 </document>
