@@ -87,8 +87,13 @@ class PlayViewController: UIViewController {
         whiteCard3 = HTMLDecode.decodeHTMLString(for: encodedStringThree).string
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
+        //whiteCardPhrase1Button.sizeToFit()
+        
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
+        //whiteCardPhrase2Button.sizeToFit()
+        
         whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
+        //whiteCardPhrase3Button.sizeToFit()
     }
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
