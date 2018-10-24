@@ -17,17 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SFW Cards Against Humanity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evZ-tc-p6y">
-                                <rect key="frame" x="75" y="177" width="225" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNk-8y-umN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNk-8y-umN">
                                 <rect key="frame" x="75" y="513" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.050894779430000002" blue="0.47870025989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="8Nm-iL-doo"/>
+                                </constraints>
                                 <state key="normal" title="Play!">
                                     <color key="titleColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -35,10 +30,12 @@
                                     <segue destination="Ijd-Er-kX9" kind="show" identifier="homeToPlay" id="fEw-9T-cb6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkt-r3-RnT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkt-r3-RnT">
                                 <rect key="frame" x="218" y="513" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.050894779430000002" blue="0.47870025989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="GwW-0F-G98"/>
+                                </constraints>
                                 <state key="normal" title="Faves">
                                     <color key="titleColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -46,8 +43,27 @@
                                     <segue destination="qDe-FI-aS2" kind="show" identifier="homeToFavorites" id="I2H-Xj-NjP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SFW Cards Against Humanity" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evZ-tc-p6y">
+                                <rect key="frame" x="25" y="213" width="325" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="2Yd-HA-5He"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lNk-8y-umN" firstAttribute="leading" secondItem="vk7-2K-8fo" secondAttribute="leading" constant="75" id="2bR-0L-Urs"/>
+                            <constraint firstItem="evZ-tc-p6y" firstAttribute="leading" secondItem="vk7-2K-8fo" secondAttribute="leading" constant="25" id="5TL-Lb-MMj"/>
+                            <constraint firstItem="vk7-2K-8fo" firstAttribute="bottom" secondItem="lNk-8y-umN" secondAttribute="bottom" constant="124" id="a4d-bC-lYj"/>
+                            <constraint firstItem="qkt-r3-RnT" firstAttribute="leading" secondItem="lNk-8y-umN" secondAttribute="trailing" priority="750" constant="61" id="jOU-7r-X74"/>
+                            <constraint firstItem="evZ-tc-p6y" firstAttribute="centerX" secondItem="srZ-lZ-O9F" secondAttribute="centerX" id="mgI-dP-NRV"/>
+                            <constraint firstItem="lNk-8y-umN" firstAttribute="baseline" secondItem="qkt-r3-RnT" secondAttribute="baseline" id="oBo-Vc-3Re"/>
+                            <constraint firstItem="evZ-tc-p6y" firstAttribute="top" secondItem="vk7-2K-8fo" secondAttribute="top" constant="149" id="ujL-Ac-yNY"/>
+                            <constraint firstItem="vk7-2K-8fo" firstAttribute="trailing" secondItem="qkt-r3-RnT" secondAttribute="trailing" constant="75" id="zAJ-bp-q3P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vk7-2K-8fo"/>
                     </view>
                     <navigationItem key="navigationItem" id="yIw-iC-9VT"/>
