@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="j4j-TX-dzL" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="80" y="308.5" width="215" height="50"/>
+                                <rect key="frame" x="80" y="308.5" width="134" height="50"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="mEl-VX-jxw"/>
@@ -148,7 +148,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-dk-agm" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="80" y="448.5" width="215" height="50"/>
+                                <rect key="frame" x="80" y="448.5" width="134" height="50"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GL3-eu-6gw"/>
@@ -160,7 +160,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-Lo-PT1" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="80" y="378.5" width="215" height="50"/>
+                                <rect key="frame" x="80" y="378.5" width="134" height="50"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="MPt-36-mlC"/>
@@ -171,17 +171,8 @@
                                     <action selector="userTappedPhraseButton:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="UDx-cC-SM9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blackCard phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-Oq-elc">
-                                <rect key="frame" x="63" y="113" width="248" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pickNumberLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMv-TW-pbJ">
-                                <rect key="frame" x="79" y="300" width="216" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pickNumberLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMv-TW-pbJ">
+                                <rect key="frame" x="64" y="333" width="166" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -208,19 +199,36 @@
                                     <action selector="userTappedNewRoundButton:" destination="Ijd-Er-kX9" eventType="touchUpInside" id="tcS-bg-BVh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blackCard phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-Oq-elc">
+                                <rect key="frame" x="63" y="113" width="168" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="36t-WM-NsJ"/>
+                                    <constraint firstAttribute="width" constant="250" id="It4-sT-2D8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="S2a-Oq-elc" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="63" id="IGr-83-VM8"/>
                             <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="0lE-Lo-PT1" secondAttribute="trailing" constant="80" id="QOU-zY-4jX"/>
                             <constraint firstItem="0lE-Lo-PT1" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="80" id="YVs-b8-eg7"/>
                             <constraint firstItem="RXZ-dk-agm" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="80" id="Zsq-TX-oiM"/>
+                            <constraint firstItem="qMv-TW-pbJ" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="64" id="Zy5-YG-DWG"/>
                             <constraint firstItem="0lE-Lo-PT1" firstAttribute="top" secondItem="j4j-TX-dzL" secondAttribute="bottom" constant="20" id="ccj-AI-cqX"/>
                             <constraint firstItem="j4j-TX-dzL" firstAttribute="centerY" secondItem="Hjq-i9-cpf" secondAttribute="centerY" id="dZc-5B-Ity"/>
                             <constraint firstItem="RXZ-dk-agm" firstAttribute="top" secondItem="0lE-Lo-PT1" secondAttribute="bottom" constant="20" id="e3Z-vk-zaO"/>
                             <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="RXZ-dk-agm" secondAttribute="trailing" constant="80" id="j5X-SQ-gWZ"/>
                             <constraint firstItem="j4j-TX-dzL" firstAttribute="leading" secondItem="JDT-Kn-ml7" secondAttribute="leading" constant="80" id="kKa-1l-DY9"/>
+                            <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="qMv-TW-pbJ" secondAttribute="trailing" constant="64" id="o43-Gz-pmS"/>
                             <constraint firstItem="j4j-TX-dzL" firstAttribute="centerX" secondItem="Hjq-i9-cpf" secondAttribute="centerX" id="oV0-eJ-Stf"/>
+                            <constraint firstItem="qMv-TW-pbJ" firstAttribute="top" secondItem="S2a-Oq-elc" secondAttribute="bottom" constant="20" id="qWi-Lo-o60"/>
+                            <constraint firstItem="S2a-Oq-elc" firstAttribute="top" secondItem="JDT-Kn-ml7" secondAttribute="top" constant="49" id="sOc-5e-cVY"/>
                             <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="j4j-TX-dzL" secondAttribute="trailing" constant="80" id="uS7-oy-pSw"/>
+                            <constraint firstItem="JDT-Kn-ml7" firstAttribute="trailing" secondItem="S2a-Oq-elc" secondAttribute="trailing" constant="63" id="vbx-eF-Jht"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JDT-Kn-ml7"/>
                     </view>
