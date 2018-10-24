@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="j4j-TX-dzL" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="80" y="308.5" width="134" height="50"/>
+                                <rect key="frame" x="80" y="308.5" width="215" height="50"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="mEl-VX-jxw"/>
@@ -148,7 +148,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-dk-agm" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="80" y="448.5" width="134" height="50"/>
+                                <rect key="frame" x="80" y="448.5" width="215" height="50"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GL3-eu-6gw"/>
@@ -160,7 +160,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-Lo-PT1" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="80" y="378.5" width="134" height="50"/>
+                                <rect key="frame" x="80" y="378.5" width="215" height="50"/>
                                 <color key="backgroundColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="MPt-36-mlC"/>
@@ -172,7 +172,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blackCard phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2a-Oq-elc">
-                                <rect key="frame" x="63" y="113" width="168" height="200"/>
+                                <rect key="frame" x="63" y="113" width="249" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="36t-WM-NsJ"/>
@@ -183,13 +183,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pickNumberLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMv-TW-pbJ">
-                                <rect key="frame" x="64" y="333" width="166" height="20.5"/>
+                                <rect key="frame" x="64" y="333" width="247" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEF-oe-ZLX">
-                                <rect key="frame" x="188.5" y="618.5" width="117" height="30"/>
+                                <rect key="frame" x="229" y="618.5" width="117" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.050894779430000002" blue="0.47870025989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="117" id="UdA-M9-BzL"/>
@@ -203,7 +203,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTp-in-HkP">
-                                <rect key="frame" x="-11.5" y="618.5" width="117" height="30"/>
+                                <rect key="frame" x="29" y="618.5" width="117" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.050894779430000002" blue="0.47870025989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="lGP-Iq-gCg"/>
@@ -264,35 +264,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V60-zr-QWA">
-                                <rect key="frame" x="16" y="66" width="343" height="559"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V60-zr-QWA">
+                                <rect key="frame" x="16" y="66" width="343" height="535"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blackCard phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aef-Mj-Nnd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="blackCard phrase" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aef-Mj-Nnd">
                                         <rect key="frame" x="47" y="51" width="248" height="131"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.99774772690000002" green="1" blue="0.97488382910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="whiteCardLabelTwo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-bN-uSu" customClass="BorderedLabel" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="whiteCardLabelTwo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-bN-uSu" customClass="BorderedLabel" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
                                         <rect key="frame" x="59" y="326" width="224" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="u2E-ym-0Ln"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="whiteCardLabelThree" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvk-gr-wnn" customClass="BorderedLabel" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="whiteCardLabelThree" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvk-gr-wnn" customClass="BorderedLabel" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
                                         <rect key="frame" x="59" y="442" width="224" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="Zwd-h0-bd7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGf-DS-oci" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGf-DS-oci" customClass="BorderedButton" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
                                         <rect key="frame" x="313" y="0.0" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -300,16 +301,21 @@
                                             <action selector="userTappedDismissButton:" destination="syK-vQ-tIn" eventType="touchUpInside" id="aef-ng-2oz"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="whiteCardLabelOne" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV9-tE-cte" customClass="BorderedLabel" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="whiteCardLabelOne" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV9-tE-cte" customClass="BorderedLabel" customModule="SFWCardsAgainstHumanity" customModuleProvider="target">
                                         <rect key="frame" x="59" y="223" width="224" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="mMD-9Q-AM3"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-5e-Xfh">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM0-5e-Xfh">
                                         <rect key="frame" x="282" y="508" width="61" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="Txf-Bd-ICL"/>
+                                            <constraint firstAttribute="width" constant="61" id="tDx-7f-V4c"/>
+                                        </constraints>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" title="heart"/>
                                         <connections>
@@ -318,9 +324,34 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iGf-DS-oci" secondAttribute="trailing" id="7Kq-LA-1ly"/>
+                                    <constraint firstItem="Fvk-gr-wnn" firstAttribute="top" secondItem="Dr0-bN-uSu" secondAttribute="bottom" constant="62" id="7VZ-lk-XgF"/>
+                                    <constraint firstItem="GV9-tE-cte" firstAttribute="trailing" secondItem="Dr0-bN-uSu" secondAttribute="trailing" id="G0l-Hp-9Db"/>
+                                    <constraint firstItem="iGf-DS-oci" firstAttribute="trailing" secondItem="GM0-5e-Xfh" secondAttribute="trailing" id="Gxm-UU-RwE"/>
+                                    <constraint firstItem="aef-Mj-Nnd" firstAttribute="leading" secondItem="V60-zr-QWA" secondAttribute="leading" constant="47" id="Hok-O8-xCf"/>
+                                    <constraint firstItem="aef-Mj-Nnd" firstAttribute="top" secondItem="V60-zr-QWA" secondAttribute="top" constant="51" id="KkT-p6-NEd"/>
+                                    <constraint firstItem="iGf-DS-oci" firstAttribute="top" secondItem="V60-zr-QWA" secondAttribute="top" id="N9i-Rb-wkl"/>
+                                    <constraint firstItem="aef-Mj-Nnd" firstAttribute="centerX" secondItem="GV9-tE-cte" secondAttribute="centerX" id="US2-y4-yDv"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fvk-gr-wnn" secondAttribute="bottom" constant="63" id="WWT-Mj-Vec"/>
+                                    <constraint firstItem="Dr0-bN-uSu" firstAttribute="leading" secondItem="Fvk-gr-wnn" secondAttribute="leading" id="YEP-82-13s"/>
+                                    <constraint firstItem="GV9-tE-cte" firstAttribute="top" secondItem="aef-Mj-Nnd" secondAttribute="bottom" constant="41" id="ZME-0W-4ZD"/>
+                                    <constraint firstItem="aef-Mj-Nnd" firstAttribute="centerX" secondItem="V60-zr-QWA" secondAttribute="centerX" id="anH-0j-Mef"/>
+                                    <constraint firstItem="GV9-tE-cte" firstAttribute="leading" secondItem="Dr0-bN-uSu" secondAttribute="leading" id="bBk-TY-wfv"/>
+                                    <constraint firstItem="Dr0-bN-uSu" firstAttribute="top" secondItem="GV9-tE-cte" secondAttribute="bottom" constant="49" id="cmc-tA-dxc"/>
+                                    <constraint firstItem="Dr0-bN-uSu" firstAttribute="trailing" secondItem="Fvk-gr-wnn" secondAttribute="trailing" id="j2X-ZI-R8O"/>
+                                    <constraint firstAttribute="bottom" secondItem="GM0-5e-Xfh" secondAttribute="bottom" id="pnX-uO-gTA"/>
+                                    <constraint firstItem="GV9-tE-cte" firstAttribute="leading" secondItem="V60-zr-QWA" secondAttribute="leading" constant="59" id="wng-xk-GGu"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.50139363606770837" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V60-zr-QWA" firstAttribute="leading" secondItem="pLr-6K-FPd" secondAttribute="leadingMargin" id="J2K-x0-LGU"/>
+                            <constraint firstItem="V60-zr-QWA" firstAttribute="centerX" secondItem="pLr-6K-FPd" secondAttribute="centerX" id="oLp-ZX-6E5"/>
+                            <constraint firstItem="V60-zr-QWA" firstAttribute="top" secondItem="Qj6-GQ-K9p" secondAttribute="top" constant="46" id="qwq-jJ-plf"/>
+                            <constraint firstItem="V60-zr-QWA" firstAttribute="centerY" secondItem="pLr-6K-FPd" secondAttribute="centerY" id="rHZ-am-3EC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qj6-GQ-K9p"/>
                     </view>
                     <connections>
