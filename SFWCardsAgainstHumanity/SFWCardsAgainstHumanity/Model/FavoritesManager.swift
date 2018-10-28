@@ -18,20 +18,15 @@ final class FavoritesManager {
     
     func addFavorite(favorite: FavoriteSelection) {
         self.favoritesList.append(favorite)
-        for favorite in favoritesList {
-            print("🃏FavoritesList: \(favorite.blackCard!)")
-        }
         saveFavorites()
     }
     
     func deleteFavorite(favorite: FavoriteSelection) {
-        print("🤷‍♀️ Before deletion...")
         guard let index = favoritesList.firstIndex(where: { $0.blackCard == favorite.blackCard && $0.whiteCardPhrases == favorite.whiteCardPhrases }) else {
             print("Start index is \(favoritesList.firstIndex(where: { $0.blackCard == favorite.blackCard && $0.whiteCardPhrases == favorite.whiteCardPhrases })!)")
-            print("🤭 No index!!")
+            print("No index")
             return
         }
-        print("🚨Object to be removed: \(favoritesList[index].blackCard!)")
         self.favoritesList.remove(at: index)
         saveFavorites()
     }
@@ -56,7 +51,7 @@ extension FavoritesManager {
             let data = try encoder.encode(favoritesList)
             try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
         } catch {
-            print("Error encoding item array")
+            print("Error encoding item array: \(error)")
         }
     }
     
@@ -67,7 +62,7 @@ extension FavoritesManager {
             do {
                 favoritesList = try decoder.decode([FavoriteSelection].self, from: data)
             } catch {
-                print("Error decoding item array!")
+                print("Error decoding item array: \(error)")
             }
         }
     }

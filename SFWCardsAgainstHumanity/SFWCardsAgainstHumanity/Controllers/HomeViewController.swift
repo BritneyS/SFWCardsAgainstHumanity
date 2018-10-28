@@ -16,10 +16,5 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var favoritesButton: UIButton!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
 }
 
