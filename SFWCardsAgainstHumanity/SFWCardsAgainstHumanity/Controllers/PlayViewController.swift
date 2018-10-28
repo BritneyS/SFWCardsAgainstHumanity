@@ -28,7 +28,6 @@ class PlayViewController: UIViewController {
     var whiteCard1: String?
     var whiteCard2: String?
     var whiteCard3: String?
-    var isLoading = false
     var selection: (blackCard: BlackCard?, whiteCardPhrases: [String?]) = (blackCard: nil, whiteCardPhrases: [])
     var selectionLimit = 0
     
@@ -87,13 +86,8 @@ class PlayViewController: UIViewController {
         whiteCard3 = HTMLDecode.decodeHTMLString(for: encodedStringThree).string
         
         whiteCardPhrase1Button.setTitle(whiteCard1, for: .normal)
-        //whiteCardPhrase1Button.sizeToFit()
-        
         whiteCardPhrase2Button.setTitle(whiteCard2, for: .normal)
-        //whiteCardPhrase2Button.sizeToFit()
-        
         whiteCardPhrase3Button.setTitle(whiteCard3, for: .normal)
-        //whiteCardPhrase3Button.sizeToFit()
     }
     
     func isBlackCardTextEmpty(in blackCard: BlackCard) -> Bool {
@@ -196,10 +190,7 @@ class PlayViewController: UIViewController {
             if selectionLimit == 0 {
                 endRound()
             }
-        } else {
-            print("No more choices!")
         }
-        print(selection)
     }
     
     // MARK: Actions
@@ -296,14 +287,12 @@ extension PlayViewController {
                 
                 guard let data = data else {
                     DispatchQueue.main.async {
-                        self.isLoading = false
                         self.showNetworkError()
                     }
                     return
                 }
                 self.whiteCardsJSON = self.parseWhiteCard(data: data)
                 DispatchQueue.main.async {
-                    self.isLoading = false
                     self.setWhiteCardButtonTitles()
                 }
             }
@@ -327,14 +316,12 @@ extension PlayViewController {
                 
                 guard let data = data else {
                     DispatchQueue.main.async {
-                        self.isLoading = false
                         self.showNetworkError()
                     }
                     return
                 }
                 self.blackCardsJSON = self.parseBlackCard(data: data) ?? []
                 DispatchQueue.main.async {
-                    self.isLoading = false
                     self.checkBlackCard()
                 }
             }
