@@ -283,7 +283,6 @@ extension PlayViewController {
                     print("Failure in response for white cards! \(response!)")
                     return
                 }
-                 print("Successful response for white cards! \(data!)")
                 
                 guard let data = data else {
                     DispatchQueue.main.async {
@@ -312,7 +311,6 @@ extension PlayViewController {
                     print("Failure in response for black cards! \(response!)")
                     return
                 }
-                print("Successful response for black cards! \(data!)")
                 
                 guard let data = data else {
                     DispatchQueue.main.async {
