@@ -32,13 +32,11 @@ class SelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         modalSelectionView.layer.cornerRadius = 10
-        print("🃏In Selection View: \(currentSelection)")
         populateAllLabels()
         drawEmptyFavoriteButton()
     }
     
     // MARK: Methods
-    
     
     func populateBlackCardLabel(with blackCard: BlackCard) {
         guard let blackCardText = blackCard.text else { return }
@@ -117,14 +115,11 @@ class SelectionViewController: UIViewController {
         let whiteCardPhrases = currentSelection.whiteCardPhrases
         let currentFavoriteSelection = FavoriteSelection(blackCard: blackCard, whiteCardPhrases: whiteCardPhrases, isFavorited: isFavorited)
         if isFavorited {
-            print("favorite added")
             addCurrentSelectionToFavorites(for: currentFavoriteSelection)
         } else {
             if FavoritesManager.shared.favoritesList.contains(where: { $0.blackCard == currentFavoriteSelection.blackCard }) && FavoritesManager.shared.favoritesList.contains(where: { $0.whiteCardPhrases == currentFavoriteSelection.whiteCardPhrases }) {
-                // found
-                print("favorite deleted")
+                /// found
                 deleteCurrentSelectionFromFavorites(for: currentFavoriteSelection)
-                print("💖New array: \(FavoritesManager.shared.favoritesList)")
             }
         }
     }
